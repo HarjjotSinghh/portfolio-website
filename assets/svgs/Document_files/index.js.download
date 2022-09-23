@@ -1,0 +1,90 @@
+$(document).ready(function(){
+
+    function touching($div2, $div1) {
+        var x1 = $div1.offset().left;
+        var y1 = $div1.offset().top;
+        var h1 = $div1.outerHeight(true);
+        var w1 = $div1.outerWidth(true);
+        var b1 = y1 + h1;
+        var r1 = x1 + w1;
+        var x2 = $div2.offset().left;
+        var y2 = $div2.offset().top;
+        var h2 = $div2.outerHeight(true);
+        var w2 = $div2.outerWidth(true);
+        var b2 = y2 + h2;
+        var r2 = x2 + w2;
+    
+        return x1 > x2 && y1 > y2 && b1 < b2 && r1 < r2
+          ? true
+          : false
+    }
+    var a = document.getElementById("a");
+    var a1 = document.getElementById("a1");
+    var a2 = document.getElementById("a2");
+    var a3 = document.getElementById("a");
+    var a4 = document.getElementById("a4");
+    var a5 = document.getElementById("a5");
+    var heading = document.getElementById("heading");
+    heading.addEventListener("mouseover", function(event) {
+        if (touching($(heading), $(a))) {
+            console.log("yes");
+            a.classList.add("blur-in");
+        };
+        if (touching($(heading), $(a1))) {
+            console.log("yes");
+            a1.classList.add("blur-in");
+        };
+        if (touching($(heading), $(a2))) {
+            console.log("yes");
+            a2.classList.add("blur-in");
+        };
+        if (touching($(heading), $(a3))) {
+            console.log("yes");
+            a3.classList.add("blur-in");
+        };
+        if (touching($(heading), $(a4))) {
+            console.log("yes");
+            a4.classList.add("blur-in");
+        };
+        if (touching($(heading), $(a5))) {
+            console.log("yes");
+            a5.classList.add("blur-in");
+        }
+        // else {
+        //     setTimeout(() => {
+        //         a.classList.add("blur-out");
+        //         a1.classList.add("blur-out");;
+        //         a2.classList.add("blur-out");
+        //         a3.classList.add("blur-out");
+        //         a4.classList.add("blur-out");
+        //         a5.classList.add("blur-out");
+        //     }, 5000)
+            
+        // };
+    })
+
+    function changeMode() {
+        var body = document.body;
+        var heading = document.getElementById("heading");
+        var subheading = document.getElementById("subheading");
+        var modeToggler = document.getElementById("mode-toggler");
+        var currentColor = body.style.backgroundColor;
+        var lightMode = "rgb(246, 246, 246)";
+        var darkMode = "rgb(20, 20, 20)";
+        if (currentColor === darkMode) {
+            body.style.backgroundColor = lightMode;
+            heading.style.color = darkMode;
+            subheading.style.color = darkMode;
+            modeToggler.style.backgroundColor = darkMode;
+        }
+        else if (currentColor === lightMode) {
+            body.style.backgroundColor = darkMode;
+            heading.style.color = lightMode;
+            subheading.style.color = lightMode;
+            modeToggler.style.backgroundColor = lightMode;
+        }
+    }
+
+    // console.log(heading);
+})
+

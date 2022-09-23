@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.2.1",
+    "express": "^4.18.1"
+  },
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "HarjjotSinghh",
+  "license": "ISC",
+  "description": "A simple portfolio website for myself.",
+  "type": "module"
+}

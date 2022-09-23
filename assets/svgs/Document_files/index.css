@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
+
+body {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    background-image: url("../svgs/wave_.svg");
+    background-color: rgb(20, 20, 20);
+    background-repeat: no-repeat;
+    mask-border-repeat: none;
+    background-size: cover;
+    background-position: bottom;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.heading{
+    text-shadow: 0px, 0px , 30px rgb(20, 20, 20) !important;
+    color: rgb(246, 246, 246);
+    font-size: 55px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 60px;
+    animation: slide-up 0.5s ease;
+}
+
+.subheading{
+    text-shadow: 0px, 0px , 30px rgb(20, 20, 20) !important;
+    opacity: 0;
+    color: rgb(231, 231, 231);
+    font-size: 22px;
+    padding-top: 6px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 28px;
+    animation: load 0.5s infinite, slide-right 0.5s ease;
+    animation-delay: 0.8s;
+}
+
+
+
+.tagline{
+    
+    z-index: 10 !important;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.name {
+    color: rgb(181, 55, 231);
+    text-shadow: 0px, 0px , 30px rgb(20, 20, 20) !important;
+    /* animation: hue360 5s infinite linear; */
+}
+
+@keyframes load {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+@keyframes slide-right {
+    from {
+        opacity: 0;
+        padding-left: 40px;
+    }
+    to {
+        opacity: 1;
+        padding-left: auto;
+    }
+}
+
+@keyframes slide-up {
+    from {
+
+        opacity: 0;
+        line-height: 140px;
+    }
+    to {
+
+        opacity: 1;
+        line-height: auto;
+    }
+}
+
+
+@function remcalc($value,$unit)
+{
+    @return(($value / 16) * 1#{$unit});
+}
+
+.layer{
+    
+    size: unset !important;
+}
+
+.a
+{   
+    overflow: hidden;
+    width:90px;
+    max-width: 70px;
+    position: absolute;
+    top:calc(50% - remcalc(30,em));
+    left:calc(50% - remcalc(30,em));
+    font-size: 0.5vw;
+}
+
+.a1
+{   
+    overflow: hidden;
+    width:150px;
+    max-width: 70px;
+    position: relative;
+    top:calc(40% - remcalc(30,em));
+    left:calc(50% - remcalc(30,em));
+    font-size: 0.5vw;
+}
+
+.a2
+{
+    overflow: hidden;
+    width:20px;
+    max-width: 70px;
+    position: relative;
+    top:calc(50% - remcalc(30,em));
+    left:calc(50% - remcalc(30,em));
+    font-size: 0.5vw;
+}
+
+.a3
+{
+    
+    overflow: hidden;
+    width:50px;
+    max-width: 70px;
+    position: relative;
+    top:calc(50% - remcalc(30,em));
+    left:calc(50% - remcalc(30,em));
+    font-size: 0.5vw;
+}
+
+.a4
+{
+
+    overflow: hidden;
+    width:120px;
+    max-width: 170px;
+    position: relative;
+    top:calc(50% - remcalc(30,em));
+    left:calc(50% - remcalc(30,em));
+    font-size: 0.5vw;
+}
+
+.a5
+{
+    
+    overflow: hidden;
+    size: fixed;
+    width:70px;
+    max-width: 70px;
+    position: relative;
+    top:calc(50% - remcalc(30,em));
+    left:calc(50% - remcalc(30,em));
+    font-size: 0.5vw;
+}
+.a6
+{
+    overflow: hidden;
+    size: fixed;
+    width:100px;
+    max-width: 70px;
+    position: relative;
+    top:calc(50% - remcalc(30,em));
+    left:calc(50% - remcalc(30,em));
+    font-size: 0.5vw;
+}
+.a7
+{
+    overflow: hidden;
+    size: fixed;
+    width:80px;
+    max-width: 70px;
+    position: relative;
+    top:calc(50% - remcalc(30,em));
+    left:calc(50% - remcalc(30,em));
+    font-size: 0.5vw;
+}
+
+#Layer_1
+{
+    animation:change 8s infinite forwards ease;
+    will-change:transform;
+}
+#Layer_2
+{
+    position: absolute;
+    top:0;
+    left:0;
+    transform: scale(0.95);
+    z-index: 0;
+    animation:change1 8s infinite forwards ease;
+}
+@keyframes change
+{
+    0%{
+        motion-rotation: 0deg;
+        offset: auto;
+        transform: scale(1);
+        rotate: 0deg;
+    }
+    50%{transform: scale(0.6);}
+    100%{
+        offset: 10;
+        transform: scale(1);
+        rotate: 360deg;
+        motion-rotation: 360deg;
+    }
+}
+@keyframes change1
+{
+    0%{
+        offset: 3;
+        transform: scale(0.7);}
+    50%{transform: scale(1);
+        rotate: 180deg;
+        motion-rotation: 0deg;
+    }
+    100%{
+        offset: auto;
+        transform: scale(0.7);
+        rotate: 360deg;
+        motion-rotation: 360deg;}
+}
+
+@keyframes fade-in {
+    0% {
+        visibility: hidden;
+    }
+    99%{
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
+}
+
+.shapes {
+    animation: fade-in 0.1s;
+}
+
+@keyframes blur-in {
+    0% {
+        filter: none;
+    }
+    100% {
+        filter: blur(15px) !important;
+    }
+}
+
+.blur-in {
+    animation: blur-in .5s ease !important;
+}
+
+@keyframes blur-out {
+    0% {
+        filter: blur(15px) !important;
+    }
+    100% {
+        filter: none;
+    }
+}
+
+.blur-out {
+    animation: blur-out .5s ease !important;
+}
+
+@keyframes hue360 {
+  0% { color: red; }
+  25% { color:rgb(0, 255, 0); }
+  50% { color: rgb(0, 255, 255); }
+  75% { color: rgb(255, 0, 255); }
+  100% { color: rgb(255, 0, 0); }
+}
+
+.mode-toggler{
+    position: absolute;
+    background-color: whitesmoke;
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    top: 2%;
+    right: 2%;
+    pointer-events: inherit;
+}
