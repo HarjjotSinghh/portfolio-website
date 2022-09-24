@@ -25,8 +25,6 @@
     }
 
     function makeNewPosition(){
-            
-        // Get viewport dimensions (remove the dimension of the div)
         var h = window.screen.height - 50;
         var w = window.screen.width - 50;
         
@@ -37,35 +35,33 @@
             
         
     }
-    // code that should be taken care of right away
     
     window.onload = init;
     
       function init(){
 
-        showText('heading-text', 0)
-        showText('sub-heading-text', 1.4);
-        animateDiv('spot-blur');
-        document.getElementById("sub-heading-text").style.marginTop = "-20px";
+        showText('heading-text', 0.2)
+        showText('sub-heading-text', 1.85);
+        showText('divider', 3.5);
+        showText('bio', 4.3)
+        // document.getElementById("sub-heading-text").animate(
+        //     [
+        //     {
+        //         "left": "-70%",
+        //     },
+        //     {
+        //         "left": "8%",
+        //     }
+        // ], {
+        //     duration: 2000,
+        //     iterations:1,
+        //     delay: 1700,
+        //     easing: "cubic-bezier(0.23, 1, 0.320, 1)",
+        // }
+        // );
+        // document.getElementById("sub-heading-text").style.left = "8%";
+        
 
-        
-        
-        
-        
-        
-        function animateDiv(myclass){
-            var newq = makeNewPosition();
-            // console.log([newq]);
-            document.getElementById(myclass).animate(
-                [{ top: newq[0].toString()},{ left: newq[1].toString() }]
-                , {duration: 5000, iterations: 10}
-            );
-            
-        };
-        
-        
-        
-        
         
         document.body.onmousemove = function(e) {
             var x = e.clientX;
