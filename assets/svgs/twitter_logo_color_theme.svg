@@ -3,11 +3,11 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 611 611" style="enable-background:new 0 0 611 611;" xml:space="preserve">
 <style type="text/css">
-	.st0{display:none;}
-	.st1{display:inline;fill:url(#Dark_Blue_1_);stroke:url(#Dark_Blue_2_);stroke-miterlimit:10;}
-	.st2{fill:url(#SVGID_1_);stroke:url(#SVGID_2_);stroke-miterlimit:10;}
+	.st0{fill:url(#Dark_Blue_1_);stroke:url(#Dark_Blue_2_);stroke-miterlimit:10;}
+	.st1{display:none;}
+	.st2{display:inline;fill:url(#SVGID_1_);stroke:url(#SVGID_2_);stroke-miterlimit:10;}
 </style>
-<g id="Layer_1" xmlns:serif="http://www.serif.com/" class="st0">
+<g id="Layer_1" xmlns:serif="http://www.serif.com/">
 	
 		<linearGradient id="Dark_Blue_1_" gradientUnits="userSpaceOnUse" x1="34.8203" y1="713.6296" x2="576.1797" y2="259.3754" gradientTransform="matrix(1 0 0 1 0 -181.0025)">
 		<stop  offset="0" style="stop-color:#00E5FF"/>
@@ -18,7 +18,7 @@
 		<stop  offset="0" style="stop-color:#FFFFFF"/>
 		<stop  offset="1" style="stop-color:#000000"/>
 	</linearGradient>
-	<path id="Dark_Blue" class="st1" d="M421,611.5H189.7c-105,0-190.2-85.2-190.2-190.2V190C-0.5,84.8,84.8-0.5,190-0.5h231.3
+	<path id="Dark_Blue" class="st0" d="M421,611.5H189.7c-105,0-190.2-85.2-190.2-190.2V190C-0.5,84.8,84.8-0.5,190-0.5h231.3
 		c105,0,190.2,85.2,190.2,190.2V421C611.5,526.2,526.2,611.5,421,611.5z M234.5,460.9c144.3,0,223.2-119.6,223.2-223.2
 		c0-2.6,0-5.2-0.1-7.8c-0.1-1.5,0.6-2.9,1.8-3.7c10.3-7.7,19.7-16.7,28-26.8c2.8-3.4-0.7-8.4-4.9-7c-4.1,1.4-8.3,2.5-12.5,3.6
 		c-4.4,1.1-7.4-4.4-4.1-7.6c6.1-5.9,11.3-12.9,15.3-20.6c2-3.8-2.1-8-6-6.1c-11.4,5.6-23.7,9.9-36.5,12.6c-1.5,0.3-3-0.1-4-1.2
@@ -28,7 +28,7 @@
 		c-2.5,0-5-0.1-7.5-0.4c-3.4-0.3-5.9,3.1-4.5,6.2c10.4,24,32.5,41.8,59.1,46.2c4,0.7,5.1,5.9,1.8,8.1
 		c-25.1,16.8-55.3,26.6-87.8,26.6h0c-4.7,0-6.2,6.3-2.1,8.4C161.9,451.6,197.2,460.9,234.5,460.9z"/>
 </g>
-<g id="Layer_2">
+<g id="Layer_2" class="st1">
 	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="35.2989" y1="532.2255" x2="575.7011" y2="78.7745">
 		<stop  offset="0" style="stop-color:#00E5FF"/>
 		<stop  offset="1" style="stop-color:#0295FF"/>

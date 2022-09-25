@@ -33,7 +33,6 @@
        
         return [nh,nw];
             
-        
     }
     
     window.onload = init;
@@ -45,6 +44,12 @@
         var socialLogo2 = document.getElementById('social-logo2');
         var divider = document.getElementById("divider");
         var divider2 = document.getElementById("divider2");
+        var socialLogoContainer = document.getElementById("social-logo-container");
+        var bioRect = bio.getBoundingClientRect();
+        var bioWidth = bioRect.width * 0.5;
+        var bioWidthPercentage = (bioWidth / screen.width) * 100;
+        divider.style.width = `${bioWidthPercentage}%`;
+        divider2.style.width = `${bioWidthPercentage}%`;
 
         if (window.screen.width > window.screen.height) {
             socialLogo.style.height = "8vh";
@@ -54,32 +59,33 @@
             socialLogo.style.width = "8vw";
         }
 
-        if (window.screen.width > window.screen.height) {
-            divider.style.width = "30%";
-            divider2.style.width = "30%";
-        } else if (window.screen.height > window.screen.width) {
-            divider.style.width = "50%";
-            divider2.style.width = "50%";
-        }
-
+        // if (window.screen.width > window.screen.height) {
+        //     divider.style.width = `calc(${window.screen.width * 0.3})`;
+        //     divider2.style.width = `calc(${window.screen.width * 0.3})`;
+        // } else if (window.screen.height > window.screen.width) {
+        //     divider.style.width = `calc(${window.screen.width * 0.5})`;
+        //     divider2.style.width = `calc(${window.screen.width * 0.5})`;
+        // }
+        
         showText('heading-text', 0.2)
         showText('sub-heading-text', 1.85);
         showText('divider', 3.5);
-        showText('bio', 4.3)
-        showText('social-logo', 5.8)
-        showText('social-logo2', 5.8)
+        showText('bio', 4.3);
+        showText('social-logo', 5.8);
+        showText('social-logo2', 5.8);
         showText('divider2', 5.8);
 
         var x = bio.getBoundingClientRect();
         var y = [x.bottom, x.left]
-        var twitterCoords_ = socialLogo.getBoundingClientRect();
-        var twitterCoords = [twitterCoords_.top, twitterCoords_.left];
+        
         divider2.style.left = `${y[1]}px`;
         divider2.style.top = `calc(${y[0]}px)`;
-        socialLogo.style.left = `${y[1]}px`;
-        socialLogo.style.top = `calc(${y[0]}px + 2.5vh)`;
-        socialLogo2.style.left = `calc(${twitterCoords_[1]}px + 4vh)`;
-        socialLogo2.style.top = `calc(${twitterCoords_[0]}px)`;
+        socialLogoContainer.style.left = `${y[1]}px`;
+        socialLogoContainer.style.top = `calc(${y[0]}px + 2.5vh)`;
+        var twitterCoords_ = socialLogo.getBoundingClientRect();
+        var twitterCoords = [twitterCoords_.top, twitterCoords_.left];
+        // socialLogo2.style.left = `calc(${twitterCoords[1]}px + 10vh)`;
+        // socialLogo2.style.top = `calc(${twitterCoords[0]}px)`;
         
 
         // document.getElementById("sub-heading-text").animate(
@@ -103,16 +109,19 @@
         window.onresize = function(e) {
             var x = bio.getBoundingClientRect();
             var y = [x.bottom, x.left]
+            var twitterCoords_ = socialLogo.getBoundingClientRect();
+            var twitterCoords = [twitterCoords_.top, twitterCoords_.left];
+            
             // console.log(y);
             // var a = socialLogo.getBoundingClientRect();
             // var b = [a.bottom, a.left];
-            socialLogo.style.left = `${y[1]}px`;
-            socialLogo.style.top = `calc(${y[0]}px + 2.5vh)`;
+            socialLogoContainer.style.left = `${y[1]}px`;
+            socialLogoContainer.style.top = `calc(${y[0]}px + 2.5vh)`;
             // console.log(socialLogo.style.top);
             divider2.style.left = `${y[1]}px`;
             divider2.style.top = `calc(${y[0]}px)`;
-            socialLogo2.style.left = `calc(${twitterCoords_[1]}px + 4vh)`;
-            socialLogo2.style.top = `calc(${twitterCoords_[0]}px)`;
+            // socialLogo2.style.left = `calc(${twitterCoords[1]}px + 10vh)`;
+            // socialLogo2.style.top = `calc(${twitterCoords[0]}px)`;
 
 
             if (window.screen.width > window.screen.height) {
@@ -127,13 +136,13 @@
                 socialLogo2.style.width = "8vw";
             }
 
-            if (window.screen.width > window.screen.height) {
-                divider.style.width = "30%";
-                divider2.style.width = "30%";
-            } else if (window.screen.height > window.screen.width) {
-                divider.style.width = "50%";
-                divider2.style.width = "50%";
-            }
+            // if (window.screen.width > window.screen.height) {
+            //     divider.style.width = "30%";
+            //     divider2.style.width = "30%";
+            // } else if (window.screen.height > window.screen.width) {
+            //     divider.style.width = "50%";
+            //     divider2.style.width = "50%";
+            // }
 
         }
 
