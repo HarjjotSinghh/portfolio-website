@@ -42,6 +42,7 @@
         var bio = document.getElementById("bio");
         var socialLogo = document.getElementById('social-logo');
         var socialLogo2 = document.getElementById('social-logo2');
+        var socialLogo3 = document.getElementById('social-logo3');
         var divider = document.getElementById("divider");
         var divider2 = document.getElementById("divider2");
         var socialLogoContainer = document.getElementById("social-logo-container");
@@ -54,9 +55,22 @@
         if (window.screen.width > window.screen.height) {
             socialLogo.style.height = "8vh";
             socialLogo.style.width = "auto";
+            socialLogo2.style.height = "8vh";
+            socialLogo2.style.width = "auto";
+            socialLogo3.style.height = "8vh";
+            socialLogo3.style.width = "auto";
+            socialLogo2.style.marginLeft = "10vh";
+            socialLogo3.style.marginLeft = "20vh";
         } else if (window.screen.height > window.screen.width) {
             socialLogo.style.height = "auto";
             socialLogo.style.width = "8vw";
+            socialLogo2.style.height = "auto";
+            socialLogo2.style.width = "8vw";
+            socialLogo3.style.height = "auto";
+            socialLogo3.style.width = "8vw";
+            socialLogo2.style.marginLeft = "10vw";
+            socialLogo3.style.marginLeft = "20vw";
+
         }
 
         // if (window.screen.width > window.screen.height) {
@@ -73,6 +87,7 @@
         showText('bio', 4.3);
         showText('social-logo', 5.8);
         showText('social-logo2', 5.8);
+        showText('social-logo3', 5.8);
         showText('divider2', 5.8);
 
         var x = bio.getBoundingClientRect();
@@ -129,11 +144,19 @@
                 socialLogo.style.width = "auto";
                 socialLogo2.style.height = "8vh";
                 socialLogo2.style.width = "auto";
+                socialLogo3.style.height = "8vh";
+                socialLogo3.style.width = "auto";
+                socialLogo2.style.marginLeft = "10vh";
+                socialLogo3.style.marginLeft = "20vh";
             } else if (window.screen.height > window.screen.width) {
                 socialLogo.style.height = "auto";
                 socialLogo.style.width = "8vw";
                 socialLogo2.style.height = "auto";
                 socialLogo2.style.width = "8vw";
+                socialLogo3.style.height = "auto";
+                socialLogo3.style.width = "8vw";
+                socialLogo2.style.marginLeft = "10vw";
+                socialLogo3.style.marginLeft = "20vw";
             }
 
             // if (window.screen.width > window.screen.height) {

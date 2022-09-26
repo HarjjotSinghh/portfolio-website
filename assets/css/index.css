@@ -26,7 +26,7 @@ body {
 }
 
 .color-theme {
-    background: -webkit-linear-gradient(-30deg, rgb(0, 229, 255), rgb(2, 149, 255));
+    background: -webkit-linear-gradient(30deg, rgb(0, 251, 255), rgb(6, 130, 216));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -338,16 +338,28 @@ body {
 
 .social-logo-container {
     position: fixed;
+    left: 8%;
     text-align: left;
     /* align-items: flex-start;
     align-content: flex-start; */
     justify-content: left;
+    animation-name: text-animation-heading;
+    animation-timing-function: cubic-bezier(0.2, 0, 0.190, 1);
+    animation-delay: 5.5s;
+    animation-duration: 2s;
 }
 
 .social-logo-container::after {
     content: "";
     clear: both;
     display: table;
+}
+
+.social-logo:hover, .social-logo2:hover, .social-logo3:hover {
+    animation-name: logo-hover;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
 }
 
 .social-logo {
@@ -358,25 +370,33 @@ body {
     height: auto;
     /* left: 8%; */
     /* top: 64%; */
-    animation-name: text-animation-heading;
-    animation-timing-function: cubic-bezier(0.2, 0, 0.190, 1);
-    animation-delay: 5.5s;
-    animation-duration: 2s;
+    
 }
 
 .social-logo2 {
     float: left;
     visibility: hidden;
     position: fixed;
-    margin-left: 10%;
+    /* margin-left: 10vh; */
     width: 8vw;
     height: auto;
     /* left: 8%; */
     /* top: 64%; */
-    animation-name: text-animation-heading;
+    /* animation-name: text-animation-heading;
     animation-timing-function: cubic-bezier(0.2, 0, 0.190, 1);
     animation-delay: 5.5s;
-    animation-duration: 2.2s;
+    animation-duration: 2.2s; */
+}
+
+.social-logo3 {
+    float: left;
+    visibility: hidden;
+    position: fixed;
+    width: 8vw;
+    height: auto;
+    /* left: 8%; */
+    /* top: 64%; */
+    
 }
 
 @keyframes logo-hover {
@@ -388,12 +408,12 @@ body {
     }
 }
 
-.social-logo-container:hover {
+/* .social-logo-container:hover {
     animation-name: logo-hover;
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: 10;
-}
+} */
 
 /* .social-logo:hover {
     animation-name: logo-hover;
