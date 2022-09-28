@@ -1,4 +1,4 @@
-
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 
 /* Body */
 
@@ -269,13 +269,13 @@ body {
     top: 12%;
     left: 25%;
     opacity: 50%;
-    -webkit-filter: blur(200px);
-    -moz-filter: blur(200px);
-    -o-filter: blur(200px);
-    -ms-filter: blur(200px);
-    filter: blur(200px);
-    width: 30%;
-    height: 30%;
+    -webkit-filter: blur(220px);
+    -moz-filter: blur(220px);
+    -o-filter: blur(220px);
+    -ms-filter: blur(220px);
+    filter: blur(220px);
+    width: 35vw;
+    height: 35vw;
     border-radius: 100%;
     animation-name: fade-in-spot-blur;
     animation-timing-function: ease;
@@ -442,7 +442,7 @@ body {
     border-top: 0.3vh solid rgb(218, 218, 218);
     background: transparent;
     margin-top: 1.2vh;
-    filter: brightness(3.5);
+    /* filter: brightness(3.5); */
     
     animation-name: text-animation-heading;
     animation-timing-function: cubic-bezier(0.2, 0, 0.190, 1);
@@ -463,7 +463,7 @@ body {
     border-top: 0.3vh solid rgb(218, 218, 218);
     background: transparent;
     margin-top: -0.9vh;
-    filter: brightness(3.0);
+    /* filter: brightness(3.0); */
     
     animation-name: text-animation-heading;
     animation-timing-function: cubic-bezier(0.2, 0, 0.190, 1);
@@ -506,3 +506,49 @@ a {
     text-decoration: underline rgba(0, 172, 203, 0.3);
 }
 
+/* Light and Dark mode */
+
+@keyframes light-mode-icon-animation {
+    0% {
+        right: -10%;
+    }
+    100% {
+        right: 5%;
+    }
+}
+
+.light-mode-icon {
+    visibility: hidden;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+    width: 8vh;
+    border-radius: 35%;
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    animation-name: light-mode-icon-animation;
+    animation-delay: 2s;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0.2, 0, 0.190, 1);
+}
+
+.center {
+    top: 50%;
+    left: 50%;
+    /* transform: translate(-20%, -20%); */
+}
+
+.sun-icon {
+    top: 5%;
+    right: 5%;
+    width: 4vw;
+    height: 4vw;
+    text-align: center;
+}
+
+.light-mode-icon-container {
+    border-style: solid;
+    border: none;
+}

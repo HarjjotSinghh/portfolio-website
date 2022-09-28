@@ -37,8 +37,10 @@
     
     window.onload = init;
     
-      function init(){
-
+    function init(){
+        var spotBlur = document.getElementById("spot-blur");
+        var heading = document.getElementById("heading-text");
+        var subHeading = document.getElementById("sub-heading-text");
         var bio = document.getElementById("bio");
         var socialLogo = document.getElementById('social-logo');
         var socialLogo2 = document.getElementById('social-logo2');
@@ -46,11 +48,76 @@
         var divider = document.getElementById("divider");
         var divider2 = document.getElementById("divider2");
         var socialLogoContainer = document.getElementById("social-logo-container");
+        var lightThemeIcon =  document.getElementById("light-mode-icon");
+        var sunIcon = document.getElementById("sun-icon");
         var bioRect = bio.getBoundingClientRect();
         var bioWidth = bioRect.width * 0.5;
         var bioWidthPercentage = (bioWidth / screen.width) * 100;
+        var text = document.getElementById("text");
         divider.style.width = `${bioWidthPercentage}%`;
         divider2.style.width = `${bioWidthPercentage}%`;
+        lightThemeIcon.style.backgroundImage = "none";
+
+        lightThemeIcon.onclick = function(e) {
+            var duration = 1500;
+            var elementsToAnimate = [heading, subHeading, bio, divider, divider2];
+
+            spotBlur.animate([
+                {backgroundColor: "rgb(45, 115, 255)",
+                opacity: "50%"    
+            },
+                {backgroundColor: "rgb(1, 219, 247)",
+                opacity: "35%"
+            },
+            ],{
+                duration: duration,
+                iterations: 1,
+                easing : "ease-in"
+            })
+            
+            spotBlur.style.backgroundColor = "rgb(1, 219, 247)";
+            spotBlur.style.opacity = "40%";
+
+            elementsToAnimate.forEach( function(element) {
+                if (element === divider || element === divider2) {
+                    element.animate([
+                        {borderTop: "0.3vh solid rgb(218, 218, 218)"},
+                        {color: "0.3vh solid rgb(34, 34, 34)"}
+                    ], {
+                        duration: duration,
+                        iterations: 1,
+                        easing : "ease-in"
+                    });
+                    element.style.borderTop = "0.3vh solid rgb(34, 34, 34)";
+                    
+                }
+                else  {
+                    element.animate([
+                        {color: "#e5e3e0"},
+                        {color: "rgb(34, 34, 34)"}
+                    ], {
+                        duration: duration,
+                        iterations: 1,
+                        easing : "ease-in"
+                    });
+                    element.style.color = "rgb(34, 34, 34)";
+                }
+                
+            })
+            
+            document.body.animate([
+                {backgroundColor: "rgb(34, 34, 34)"},
+                {backgroundColor: "#e5e3e0"}
+            ], {
+                duration: duration,
+                iterations: 1,
+                easing : "ease-in"
+            });
+            setTimeout(function() {
+                document.body.style.backgroundColor = "#e5e3e0"
+            }, duration)
+            ;
+        };
 
         if (window.screen.width > window.screen.height) {
             socialLogo.style.height = "8vh";
@@ -61,6 +128,15 @@
             socialLogo3.style.width = "auto";
             socialLogo2.style.marginLeft = "10vh";
             socialLogo3.style.marginLeft = "20vh";
+
+            lightThemeIcon.style.height = "8vh";
+            lightThemeIcon.style.width = "8vh";
+            // sunIcon.style.height = "5vh";
+            // sunIcon.style.width = "5vh";
+
+            spotBlur.style.height = "35vh";
+            spotBlur.style.width = "35vh";
+
         } else if (window.screen.height > window.screen.width) {
             socialLogo.style.height = "auto";
             socialLogo.style.width = "8vw";
@@ -71,6 +147,13 @@
             socialLogo2.style.marginLeft = "10vw";
             socialLogo3.style.marginLeft = "20vw";
 
+            lightThemeIcon.style.height = "8vw";
+            lightThemeIcon.style.width = "8vw";
+            // sunIcon.style.height = "5vw";
+            // sunIcon.style.width = "5vw";
+
+            spotBlur.style.height = "35vw";
+            spotBlur.style.width = "35vw";
         }
 
         // if (window.screen.width > window.screen.height) {
@@ -83,6 +166,7 @@
         
         showText('heading-text', 0.2)
         showText('sub-heading-text', 1.85);
+        showText('light-mode-icon', 2.25)
         showText('divider', 3.5);
         showText('bio', 4.3);
         showText('social-logo', 5.8);
@@ -148,6 +232,15 @@
                 socialLogo3.style.width = "auto";
                 socialLogo2.style.marginLeft = "10vh";
                 socialLogo3.style.marginLeft = "20vh";
+
+                lightThemeIcon.style.height = "8vh";
+                lightThemeIcon.style.width = "8vh";
+                // sunIcon.style.height = "5vh";
+                // sunIcon.style.width = "5vh";
+
+                spotBlur.style.height = "35vh";
+                spotBlur.style.width = "35vh";
+            
             } else if (window.screen.height > window.screen.width) {
                 socialLogo.style.height = "auto";
                 socialLogo.style.width = "8vw";
@@ -157,6 +250,14 @@
                 socialLogo3.style.width = "8vw";
                 socialLogo2.style.marginLeft = "10vw";
                 socialLogo3.style.marginLeft = "20vw";
+
+                lightThemeIcon.style.height = "8vw";
+                lightThemeIcon.style.width = "8vw";
+                // sunIcon.style.height = "5vw";
+                // sunIcon.style.width = "5vw";
+
+                spotBlur.style.height = "35vw";
+                spotBlur.style.width = "35vw";
             }
 
             // if (window.screen.width > window.screen.height) {

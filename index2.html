@@ -13,6 +13,7 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <link rel='stylesheet' type='text/css' media='screen' href='assets/css/index.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src='assets/scripts/index.js'></script>
 </head>
@@ -33,7 +34,7 @@
         </div>
     </div>
 
-    <div class="headings text">
+    <div class="headings text" id="text">
         <h1 class = "heading-text" id = "heading-text" unselectable="on" onselectstart="return false;" onmousedown="return false;">
             <span class="smaller-heading-text">
                 Hey,
@@ -58,7 +59,7 @@
             <ul class="bio text" id="bio" style="list-style-type: none; list-style: none;">
                 <li>
                     • I am currently pursuing B. Tech in Computer Science and Engineering from 
-                <a href="https://gtbit.org/">
+                <a target="_blank" rel="noopener noreferrer" href="https://gtbit.org/">
                 <span class="color-theme">
                     GTBIT, Delhi.
                 </span>
@@ -66,7 +67,7 @@
                 </li>  
             <li>
                 • I have worked with Python and JavaScript on 
-            <a href="https://github.com/vxdero?tab=repositories">
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/vxdero?tab=repositories">
                 <span class="color-theme">
                     multiple projects.
                 </span>
@@ -74,7 +75,7 @@
             </li>
             <li>
                 • I have freelanced as a Graphic Designer and Visual Editor, check out my 
-            <a href="https://behance.net/vxdro">
+            <a target="_blank" rel="noopener noreferrer" href="https://behance.net/vxdro">
                 <span class="color-theme">
                     Behance Portfolio!
                 </span>
@@ -90,17 +91,26 @@
         <hr class="divider2" id="divider2">
 
         <div id="social-logo-container" class="social-logo-container">
-            <a href="https://twitter.com/HarjjotSinghh">
+            <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/HarjjotSinghh">
                 <img class="social-logo" id="social-logo" src="assets/svgs/twitter_logo_color_theme.svg" alt="Follow me on twitter!">
             </a>
-            <a href="https://github.com/HarjjotSinghh">
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/HarjjotSinghh">
                 <img class="social-logo2" id="social-logo2" src="assets/svgs/guthub_logo_color_theme.svg" alt="Check out my GitHub!">
             </a>
-            <a href="https://www.linkedin.com/in/harjot-singh-9a7381251/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/harjot-singh-9a7381251/">
                 <img class="social-logo3" id="social-logo3" src="assets/svgs/linkedin_logo_color_theme.svg" alt="Check out my LinkedIn!">
             </a>
         </div>
     </div>
+
+    <!-- <button class="light-mode-icon" id="light-mode-icon">
+        <img src="assets/svgs/sun.svg" class="sun-icon center" id="sun-icon">
+    </button> -->
+    <button class="light-mode-icon-container" id="light-mode-icon-container">
+        <img src="assets/svgs/sun_color_theme.svg" class="light-mode-icon" id="light-mode-icon">
+    </button>
+    
+
     <div id="overlay"></div>
 </body>
 </html>
