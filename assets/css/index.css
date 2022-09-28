@@ -180,6 +180,7 @@ body {
 .wave,
 .wave::before,
 .wave::after {
+  opacity: 80%;
   size: unset;
   content: '';
   position: absolute;
@@ -192,7 +193,7 @@ body {
   background-color: transparent;
   border-radius: 38% 42%;
   box-shadow: inset 0 0 10vw rgb(28, 88, 251);
-  animation: spin 24s infinite linear;
+  animation: spin 28s infinite linear;
   mix-blend-mode: add;
 }
 
@@ -203,7 +204,7 @@ body {
   transform-origin: 49% 51%;
   border-radius: 40% 38%;
   box-shadow: inset 0 0 11vw rgb(19, 204, 255);
-  animation: spin 22s infinite linear;
+  animation: spin 27s infinite linear;
 }
 
 .wave::after {
@@ -213,7 +214,7 @@ body {
   transform-origin: 51% 49%;
   border-radius: 48% 42%;
   box-shadow: inset 0 0 11vw rgba(0, 132, 255, 0.8);
-  animation: spin 20s infinite linear;
+  animation: spin 26s infinite linear;
 }
 
 @keyframes spin {
@@ -366,8 +367,8 @@ body {
     float: left;
     visibility: hidden;
     position: fixed;
-    width: 8vw;
-    height: auto;
+    /* width: 8vw;
+    height: auto; */
     /* left: 8%; */
     /* top: 64%; */
     
@@ -378,8 +379,8 @@ body {
     visibility: hidden;
     position: fixed;
     /* margin-left: 10vh; */
-    width: 8vw;
-    height: auto;
+    /* width: 8vw;
+    height: auto; */
     /* left: 8%; */
     /* top: 64%; */
     /* animation-name: text-animation-heading;
@@ -392,8 +393,8 @@ body {
     float: left;
     visibility: hidden;
     position: fixed;
-    width: 8vw;
-    height: auto;
+    /* width: 8vw;
+    height: auto; */
     /* left: 8%; */
     /* top: 64%; */
     
@@ -522,16 +523,30 @@ a {
     text-align: center;
     justify-content: center;
     align-items: center;
-    height: 8vh;
-    width: 8vh;
+    /* height: 8vh;
+    width: 8vh; */
     border-radius: 35%;
     position: fixed;
     top: 5%;
     right: 5%;
     animation-name: light-mode-icon-animation;
+    animation-iteration-count: 1;
     animation-delay: 2s;
     animation-duration: 2s;
     animation-timing-function: cubic-bezier(0.2, 0, 0.190, 1);
+}
+
+.dark-mode-icon {
+    visibility: hidden;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    /* height: 8vh;
+    width: 8vh; */
+    border-radius: 35%;
+    position: fixed;
+    top: 5%;
+    right: 5%;
 }
 
 .center {
@@ -551,4 +566,23 @@ a {
 .light-mode-icon-container {
     border-style: solid;
     border: none;
+}
+
+.light-mode-icon-container:hover {
+    animation-name: logo-hover;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+
+.dark-mode-icon-container {
+    border-style: solid;
+    border: none;
+}
+
+.dark-mode-icon-container:hover {
+    animation-name: logo-hover;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
 }

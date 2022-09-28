@@ -38,6 +38,8 @@
     window.onload = init;
     
     function init(){
+        var lightMode = false;
+        var darkMode = true;
         var spotBlur = document.getElementById("spot-blur");
         var heading = document.getElementById("heading-text");
         var subHeading = document.getElementById("sub-heading-text");
@@ -49,25 +51,63 @@
         var divider2 = document.getElementById("divider2");
         var socialLogoContainer = document.getElementById("social-logo-container");
         var lightThemeIcon =  document.getElementById("light-mode-icon");
+        var darkThemeIcon =  document.getElementById("dark-mode-icon");
         var sunIcon = document.getElementById("sun-icon");
         var bioRect = bio.getBoundingClientRect();
         var bioWidth = bioRect.width * 0.5;
         var bioWidthPercentage = (bioWidth / screen.width) * 100;
+        var wave = document.getElementById("wave")
         var text = document.getElementById("text");
         divider.style.width = `${bioWidthPercentage}%`;
         divider2.style.width = `${bioWidthPercentage}%`;
         lightThemeIcon.style.backgroundImage = "none";
 
         lightThemeIcon.onclick = function(e) {
+            
+            if (lightMode === true) {
+                return
+            }
             var duration = 1500;
             var elementsToAnimate = [heading, subHeading, bio, divider, divider2];
-
+            lightThemeIcon.animate([
+                {right: "5%"},
+                {right: "-10%"}
+            ],{
+                duration: 1000,
+                iterations: 1,
+                easing: "cubic-bezier(0.2, 0, 0.190, 1)"
+            })
+            setTimeout( function () {
+                lightThemeIcon.style.visibility = "hidden";
+                darkThemeIcon.style.visibility = "visible";
+                darkThemeIcon.animate([
+                    {right: "-10%"},
+                    {right: "5%"}
+                ],{
+                    duration: 1000,
+                    iterations: 1,
+                    easing: "cubic-bezier(0.2, 0, 0.190, 1)"
+                })
+            }, 1000)
+            
+            wave.animate([
+                {mixBlendMode: "add",
+                opacity: "80%"},
+                {mixBlendMode: "multiply",
+            opacity: "40%"}
+            ], {
+                duration: duration,
+                iterations: 1,
+                easing : "ease-in"
+            })
+            wave.style.mixBlendMode = "multiply";
+            wave.style.opacity = "40%";
             spotBlur.animate([
                 {backgroundColor: "rgb(45, 115, 255)",
                 opacity: "50%"    
             },
-                {backgroundColor: "rgb(1, 219, 247)",
-                opacity: "35%"
+                {backgroundColor: "rgb(2, 149, 255)",
+                opacity: "15%"
             },
             ],{
                 duration: duration,
@@ -75,8 +115,8 @@
                 easing : "ease-in"
             })
             
-            spotBlur.style.backgroundColor = "rgb(1, 219, 247)";
-            spotBlur.style.opacity = "40%";
+            spotBlur.style.backgroundColor = "rgb(2, 149, 255)";
+            spotBlur.style.opacity = "15%";
 
             elementsToAnimate.forEach( function(element) {
                 if (element === divider || element === divider2) {
@@ -107,16 +147,115 @@
             
             document.body.animate([
                 {backgroundColor: "rgb(34, 34, 34)"},
-                {backgroundColor: "#e5e3e0"}
+                {backgroundColor: "#fefffc"}
             ], {
                 duration: duration,
                 iterations: 1,
                 easing : "ease-in"
             });
             setTimeout(function() {
-                document.body.style.backgroundColor = "#e5e3e0"
-            }, duration)
-            ;
+                document.body.style.backgroundColor = "#fefffc"
+            }, duration);
+            lightMode = true;
+            darkMode = false;
+        };
+
+        darkThemeIcon.onclick = function(e) {
+            
+            if (darkMode === true) {
+                return
+            }
+            var duration = 1500;
+            var elementsToAnimate = [heading, subHeading, bio, divider, divider2];
+            darkThemeIcon.animate([
+                {right: "5%"},
+                {right: "-10%"}
+            ],{
+                duration: 1000,
+                iterations: 1,
+                easing: "cubic-bezier(0.2, 0, 0.190, 1)"
+            })
+            setTimeout( function () {
+                darkThemeIcon.style.visibility = "hidden";
+                lightThemeIcon.style.visibility = "visible";
+                lightThemeIcon.animate([
+                    {right: "-10%"},
+                    {right: "5%"}
+                ],{
+                    duration: 1000,
+                    iterations: 1,
+                    easing: "cubic-bezier(0.2, 0, 0.190, 1)"
+                })
+            }, 1000)
+            
+            wave.animate([
+                {mixBlendMode: "multiply",
+                opacity: "40%"},
+                {mixBlendMode: "add",
+                opacity: "80%"}
+            ], {
+                duration: duration,
+                iterations: 1,
+                easing : "ease-in"
+            })
+            wave.style.mixBlendMode = "add";
+            wave.style.opacity = "80%";
+            spotBlur.animate([
+                {backgroundColor: "rgb(2, 149, 255)",
+                opacity: "15%"    
+            },
+                {backgroundColor: "rgb(45, 115, 255)",
+                opacity: "50%"
+            },
+            ],{
+                duration: duration,
+                iterations: 1,
+                easing : "ease-in"
+            })
+            
+            spotBlur.style.backgroundColor = "rgb(45, 115, 255)";
+            spotBlur.style.opacity = "50%";
+
+            elementsToAnimate.forEach( function(element) {
+                if (element === divider || element === divider2) {
+                    element.animate([
+                        {borderTop: "0.3vh solid rgb(34, 34, 34)"},
+                        {color: "0.3vh solid rgb(218, 218, 218)"}
+                    ], {
+                        duration: duration,
+                        iterations: 1,
+                        easing : "ease-in"
+                    });
+                    element.style.borderTop = "0.3vh solid rgb(218, 218, 218)";
+                    
+                }
+                else  {
+                    element.animate([
+                        {color: "rgb(34, 34, 34)"},
+                        {color: "#e5e3e0"}
+                    ], {
+                        duration: duration,
+                        iterations: 1,
+                        easing : "ease-in"
+                    });
+                    element.style.color = "#e5e3e0";
+                }
+                
+            })
+            
+            document.body.animate([
+                {backgroundColor: "#fefffc"},
+                {backgroundColor: "rgb(34, 34, 34)"}
+            ], {
+                duration: duration,
+                iterations: 1,
+                easing : "ease-in"
+            });
+            setTimeout(function() {
+                document.body.style.backgroundColor = "rgb(34, 34, 34)"
+            }, duration);
+            lightMode = false;
+            darkMode = true;
         };
 
         if (window.screen.width > window.screen.height) {
@@ -131,6 +270,8 @@
 
             lightThemeIcon.style.height = "8vh";
             lightThemeIcon.style.width = "8vh";
+            darkThemeIcon.style.height = "8vh";
+            darkThemeIcon.style.width = "8vh";
             // sunIcon.style.height = "5vh";
             // sunIcon.style.width = "5vh";
 
@@ -149,6 +290,8 @@
 
             lightThemeIcon.style.height = "8vw";
             lightThemeIcon.style.width = "8vw";
+            darkThemeIcon.style.height = "8vw";
+            darkThemeIcon.style.width = "8vw";
             // sunIcon.style.height = "5vw";
             // sunIcon.style.width = "5vw";
 
@@ -235,6 +378,8 @@
 
                 lightThemeIcon.style.height = "8vh";
                 lightThemeIcon.style.width = "8vh";
+                darkThemeIcon.style.height = "8vh";
+                darkThemeIcon.style.width = "8vh";
                 // sunIcon.style.height = "5vh";
                 // sunIcon.style.width = "5vh";
 
@@ -253,6 +398,8 @@
 
                 lightThemeIcon.style.height = "8vw";
                 lightThemeIcon.style.width = "8vw";
+                darkThemeIcon.style.height = "8vw";
+                darkThemeIcon.style.width = "8vw";
                 // sunIcon.style.height = "5vw";
                 // sunIcon.style.width = "5vw";
 
@@ -291,7 +438,7 @@
                     duration: 10000,
                     iterations: 1,
                     delay: 100,
-                    easing: "cubic-bezier(0.49, 0.47, 0.63, 0.85",
+                    easing: "cubic-bezier(0.49, 0.47, 0.63, 0.85)",
                 } 
             )
             setTimeout(function() {
