@@ -6,11 +6,11 @@ const app = express();
 app.use('/assets', express.static('assets'));
 
 app.get("/", (req, res) => {
-    res.sendFile(resolve("index2.html"));
+    res.sendFile(resolve("indexR.html"));
 });
 
-app.get("/about", (req, res) => {
-    res.sendFile(resolve("about.html"));
+app.get("*", function(req, res) {
+    res.redirect("/");
 });
 
 
