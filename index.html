@@ -12,8 +12,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <link rel='stylesheet' type='text/css' media='screen' href='assets/css/index.css'>
-    <script src='assets/scripts/index.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='assets/css/indexR.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='assets/scripts/indexR.js'></script>
 </head>
 <body>
     <div class = "spot-blur" id="spot-blur">
@@ -23,6 +25,7 @@
             <div class="wave" id="wave"></div>
         </div>
     </div>
+
     <div class = "bacground-waves">
         <div class="whole-whole">
             <div class="whole">
@@ -30,42 +33,97 @@
             </div>
         </div>
     </div>
+    <div class="main-container" id = "main-container">
+        <div class="headings text" id="text">
+            <h1 class = "heading-text" id = "heading-text" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                <span class="smaller-heading-text">
+                    Hey,
+                </span>
+                <br>
+                I am 
+                <span class="color-theme">
+                    Harjot.
+                </span>
+            </h1>
     
-
-    
-    <div class="headings text">
-        <h1 class = "heading-text" id = "heading-text" unselectable="on" onselectstart="return false;" onmousedown="return false;">
-            <span class="smaller-heading-text">
-                Hey,
-            </span>
-            <br>
-            I am <span class="color-theme">
-                Harjot.
-            </span>
-            <br>
-            <span class="sub-heading-text" id="sub-heading-text" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+            <h2 class="sub-heading-text" id="sub-heading-text" unselectable="on" onselectstart="return false;" onmousedown="return false;">
                 A 
                 <span class="color-theme">student</span>
                 and <span class = "color-theme">web developer</span> 
                 from New Delhi, India.
-            </span>
+            </h2>
+    
             <hr class="divider" id="divider">
             <br>
-            <p class="bio text" id="bio">
-                I am currently an undergraduate student studying computer science engineering at 
-                <a href="https://gtbit.org/">GTBIT, Delhi.</a>
+            <p unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                <ul class="bio text" id="bio" style="list-style-type: none; list-style: none;">
+                    <li>
+                        • I am currently pursuing B. Tech (CSE) from 
+                    <a target="_blank" rel="noopener noreferrer" href="https://gtbit.org/">
+                    <span class="color-theme">
+                        GTBIT, Delhi.
+                    </span>
+                </a>
+                    </li>  
+                <li>
+                    • I have worked on 
+                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/vxdero?tab=repositories">
+                        <span class="color-theme">
+                            multiple projects
+                        </span>
+                    </a>
+                    using Python and JavaScript. 
+                </li>
+                <li>
+                    • I have freelanced as a 
+                    <a href="https://www.behance.net/harjjot">
+                        <span class="color-theme">
+                            Graphic Designer
+                        </span>
+                    </a>
+                    and 
+                    <a href="https://www.behance.net/harjjot">
+                        <span class="color-theme">
+                            Visual Editor
+                        </span>
+                    </a>
+                    .
+                </li>
+                <li>
+                    • I am currently learning Java, C++ and Data Structures/Algorithms.
+                </li>
+                <br>
+                </ul>
             </p>
-        </h1>
-        
+    
+            <hr class="divider2" id="divider2">
+    
+            <div id="social-logo-container" class="social-logo-container">
+                <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/HarjjotSinghh">
+                    <img draggable="false" class="social-logo-main" id="social-logo" src="assets/svgs/twitter_logo_color_theme.svg" alt="Follow me on twitter!">
+                </a>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/HarjjotSinghh">
+                    <img draggable="false" class="social-logo-main" id="social-logo2" src="assets/svgs/guthub_logo_color_theme.svg" alt="Check out my GitHub!">
+                </a>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/harjot-singh-9a7381251/">
+                    <img draggable="false" class="social-logo-main" id="social-logo3" src="assets/svgs/linkedin_logo_color_theme.svg" alt="Check out my LinkedIn!">
+                </a>
+            </div>
+        </div>
     </div>
+    
 
+    <!-- <button class="light-mode-icon" id="light-mode-icon">
+        <img draggable="false" src="assets/svgs/sun.svg" class="sun-icon center" id="sun-icon">
+    </button> -->
+    <a >
+        <img draggable="false" src="assets/svgs/sun_color_theme.svg" class="light-mode-icon" id="light-mode-icon">
+    </a>
+    <a>
+        <img draggable="false" src="assets/svgs/moon_color_theme.svg" class="dark-mode-icon" id="dark-mode-icon">
+    </a>
     
-    
-    <!-- <div class="socials">
-        
-    </div> -->
 
-    
-    
+    <div id="overlay"></div>
 </body>
 </html>

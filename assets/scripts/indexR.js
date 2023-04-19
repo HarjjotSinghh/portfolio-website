@@ -79,9 +79,15 @@
         lightThemeIcon.style.backgroundImage = "none";
         var x = bio.getBoundingClientRect();
         var y = [x.bottom, x.left]
-
+        var mainContainer = document.getElementById("main-container");
         var elements = [heading, subHeading, divider, bio, divider2, socialLogoContainer];
-        
+
+        mainContainer.style.width = window.innerWidth;
+
+        window.onresize = function() {
+            mainContainer.style.width = window.innerWidth;
+        }
+
         lightThemeIcon.style.visibility = "hidden";
         setTimeout( function() {
             lightThemeIcon.style.visibility = "visible";
@@ -395,6 +401,7 @@
         // // document.getElementById("sub-heading-text").style.left = "8%";
         
         
+
         // window.onresize = function(e) {
         //     var x = bio.getBoundingClientRect();
         //     var y = [x.bottom, x.left]

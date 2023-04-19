@@ -6,7 +6,7 @@ const app = express();
 app.use('/assets', express.static('assets'));
 
 app.get("/", (req, res) => {
-    res.sendFile(resolve("indexR.html"));
+    res.sendFile(resolve("index.html"));
 });
 
 app.get("*", function(req, res) {
