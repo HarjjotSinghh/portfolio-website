@@ -145,13 +145,34 @@
 
         navArrow.addEventListener('click', () => {
 
-            pages[currentPageIndex].style.animation = 'slide-up 1s forwards';
+            navArrow.style.animation = 'fade-out 1s cubic-bezier(0.2, 0, 0.190, 1) forwards';
 
+
+            for (let i = currentPageIndex; i >= 0; i--) {
+              pages[i].style.animation = 'slide-up 2s cubic-bezier(0.2, 0, 0.190, 1) forwards';
+              
+            }
+            // navArrow.style.opacity = "0";
+            
             setTimeout(() => {
-              pages[currentPageIndex].classList.remove('active');
+              navArrow.style.display = 'none';
+
+              for (let i = currentPageIndex; i >= 0; i--) {
+                pages[i].classList.remove('active');
+              }
+
               currentPageIndex = (currentPageIndex + 1) % pages.length;
               pages[currentPageIndex].classList.add('active');
-            }, 1000);
+              for (let i = currentPageIndex; i >= 0; i--) {
+                pages[i].style.animation = 'slide-up2 2s cubic-bezier(0.2, 0, 0.190, 1) forwards';
+              }
+              setTimeout(() => {
+                navArrow.style.display = 'block';
+                navArrow.style.animation = 'fade-in 1s cubic-bezier(0.2, 0, 0.190, 1) forwards';
+                // navArrow.style.opacity = '1';
+                
+              }, 1000);
+            }, 800);
           });
 
         lightThemeIcon.style.visibility = "hidden";
@@ -175,7 +196,7 @@
         animateElement(divider2, 6.8, -500, 1.7)
         animateElement(socialLogoContainer, 7.8, -400, 1.5)
         animateImage(image, 2, -1500, 2)
-        animateNavArrow(navArrow, 7, 1)
+        animateNavArrow(navArrow, 8, 1)
 
         // mainContainer.style.maxWidth = window.screen.width;
         // mainContainer.style.maxHeight = window.screen.height;
@@ -216,7 +237,7 @@
             ], {
                 duration: duration,
                 iterations: 1,
-                easing : "ease-in"
+                easing : "cubic-bezier(0.2, 0, 0.190, 1)"
             })
             wave.style.mixBlendMode = "multiply";
             wave.style.opacity = "40%";
@@ -230,7 +251,7 @@
             ],{
                 duration: duration,
                 iterations: 1,
-                easing : "ease-in"
+                easing : "cubic-bezier(0.2, 0, 0.190, 1)"
             })
             
             spotBlur.style.backgroundColor = "rgb(2, 149, 255)";
@@ -244,7 +265,7 @@
                     ], {
                         duration: duration,
                         iterations: 1,
-                        easing : "ease-in"
+                        easing : "cubic-bezier(0.2, 0, 0.190, 1)"
                     });
                     element.style.borderTop = "0.3vh solid rgb(34, 34, 34)";
                     
@@ -256,7 +277,7 @@
                     ], {
                         duration: duration,
                         iterations: 1,
-                        easing : "ease-in"
+                        easing : "cubic-bezier(0.2, 0, 0.190, 1)"
                     });
                     element.style.color = "rgb(34, 34, 34)";
                 }
@@ -269,7 +290,7 @@
             ], {
                 duration: duration,
                 iterations: 1,
-                easing : "ease-in"
+                easing : "cubic-bezier(0.2, 0, 0.190, 1)"
             });
             setTimeout(function() {
                 document.body.style.backgroundColor = "#fefffc"
@@ -314,7 +335,7 @@
             ], {
                 duration: duration,
                 iterations: 1,
-                easing : "ease-in"
+                easing : "cubic-bezier(0.2, 0, 0.190, 1)"
             })
             wave.style.mixBlendMode = "add";
             wave.style.opacity = "80%";
@@ -328,7 +349,7 @@
             ],{
                 duration: duration,
                 iterations: 1,
-                easing : "ease-in"
+                easing : "cubic-bezier(0.2, 0, 0.190, 1)"
             })
             
             spotBlur.style.backgroundColor = "rgb(45, 115, 255)";
@@ -342,7 +363,7 @@
                     ], {
                         duration: duration,
                         iterations: 1,
-                        easing : "ease-in"
+                        easing : "cubic-bezier(0.2, 0, 0.190, 1)"
                     });
                     element.style.borderTop = "0.3vh solid rgb(218, 218, 218)";
                     
@@ -354,7 +375,7 @@
                     ], {
                         duration: duration,
                         iterations: 1,
-                        easing : "ease-in"
+                        easing : "cubic-bezier(0.2, 0, 0.190, 1)"
                     });
                     element.style.color = "#e5e3e0";
                 }
@@ -367,7 +388,7 @@
             ], {
                 duration: duration,
                 iterations: 1,
-                easing : "ease-in"
+                easing : "cubic-bezier(0.2, 0, 0.190, 1)"
             });
             setTimeout(function() {
                 document.body.style.backgroundColor = "rgb(34, 34, 34)"

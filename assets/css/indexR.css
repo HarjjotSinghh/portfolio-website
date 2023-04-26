@@ -31,6 +31,7 @@ body {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-weight: 900;
     /* animation-name: color-change;
     animation-duration: 40s;
     animation-timing-function: ease; 
@@ -126,6 +127,7 @@ body {
 }
 .smaller-heading-text {
     font-size: 50px;
+    margin-left: 4px;
 }
 
 .sub-heading-text {
@@ -854,6 +856,7 @@ a {
 }
 
 .nav-arrow {
+    transition: opacity 0.5s;
     width: 80px;
     height: 80px;
     z-index: 1;
@@ -925,3 +928,62 @@ a {
       transform: translateY(-100%);
     }
   }
+
+@keyframes slide-up2 {
+from {
+    transform: translateY(100%);
+}
+to {
+    transform: translateY(0);
+}
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.page2-container {
+    position: relative;
+    left: 0;
+    padding: 100px;
+    display: flex;
+    flex-direction: row;
+}
+
+.about-me {
+    font-size: 50px;
+    font-family: 'Manrope', sans-serif;
+    color: rgb(251, 251, 251);
+}
+
+.about-me-text {
+    font-size: 18px;
+    font-family: 'Manrope', sans-serif;
+    color: rgb(251, 251, 251);
+    max-width: 700px;
+    overflow-wrap: break-word;
+}
+
+.skills-text {
+    font-size: 50px;
+    font-family: 'Manrope', sans-serif;
+    color: rgb(251, 251, 251);
+}
+skills-container {
+    position: absolute;
+    left: 200px;
+}
