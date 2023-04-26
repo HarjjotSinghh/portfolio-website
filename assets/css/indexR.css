@@ -6,7 +6,7 @@ html, body {
     height: 100%;
     margin: 0;
     border: 0;
-    padding: 0;
+    padding: 10px;
     top: 0;
     margin-top: 0;
     overflow: hidden;
@@ -111,7 +111,7 @@ body {
     cursor: default;
     /* display: inline; */
     opacity: 100%;
-    margin-top: 0;
+    /* margin-top: -81.5%; */
     position: absolute;
     /* left: 8%;
     top: 12%;  */
@@ -298,8 +298,8 @@ body {
 
 .socials-container {
     position: absolute;
-    height: 1000px;
-    width: 1000px;
+    /* height: 1000px;
+    width: 1000px; */
 }
 
 .socials,
@@ -414,7 +414,7 @@ body {
     50% {
         /* width: 90px;
         height: 90px; */
-        opacity: 80%;
+        opacity: 70%;
     }
 }
 
@@ -635,13 +635,16 @@ a {
 
 .main-container {
     position: relative;
-    width: 1200px;
-    height: 1200px;
+    /* width: 1200px;
+    height: 1200px; */
     top: 400px;
     left: 75px;
     margin: 0;
     overflow-wrap: break-word;
-
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    /* justify-content: space-around; */
 }
 
 @media only screen and (max-width: 890px) {
@@ -735,5 +738,78 @@ a {
 
     .bacground-waves {
         margin-top: -500px;
+    }
+}
+
+.my-image{
+    visibility: visible;
+    left: 780px;
+    top: -230px;
+    position: relative;
+    transform: scale(0.6);
+    /* animation: image-animation 2s linear 2s 1; */
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select:none;
+    user-select:none;
+    -o-user-select:none;
+}
+
+.my-image:hover{
+    animation: imageAnimation 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s 1;
+    animation-fill-mode: forwards;
+}
+
+.my-image:not(:hover) {
+    animation-name: imageAnimation2;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-fill-mode: forwards;
+}
+
+@keyframes image-animation {
+    0% {
+        top: -50%;
+    }
+    100% {
+        top: -200px
+    }
+    
+}
+
+@keyframes imageAnimation2 {
+    0% {
+        transform: scale(0.62);
+    }
+    100% {
+        transform: scale(0.6);
+    }
+}
+
+.nav-arrow {
+    width: 80px;
+    height: 80px;
+    z-index: 1;
+    position: absolute;
+    bottom: 300px;
+    left: 750px;
+}
+.nav-arrow:hover {
+    animation-name: icon-hover;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* .nav-arrow-container {
+
+} */
+
+@keyframes imageAnimation {
+    0% {
+        
+    }
+    100% {
+        transform: scale(0.62);
     }
 }

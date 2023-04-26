@@ -56,11 +56,21 @@
         var bioRect = bio.getBoundingClientRect();
         var bioWidth = bioRect.width * 0.5;
         var bioWidthPercentage = (bioWidth / screen.width) * 100;
-        var wave = document.getElementById("wave")
+        var wave = document.getElementById("wave");
         var text = document.getElementById("text");
+        var image = document.getElementById("my-image");
         divider.style.width = `${bioWidthPercentage}%`;
         divider2.style.width = `${bioWidthPercentage}%`;
         lightThemeIcon.style.backgroundImage = "none";
+
+        image.style.visibility = "hidden";
+
+        image.animate([
+            {
+                top: "-50%",
+                top: "-200px" 
+            }
+        ]);
 
         lightThemeIcon.onclick = function(e) {
             
@@ -307,7 +317,8 @@
         //     divider2.style.width = `calc(${window.screen.width * 0.5})`;
         // }
         
-        showText('heading-text', 0.2)
+        showText('heading-text', 0.2);
+        // showText('my-image', 1.85);
         showText('sub-heading-text', 1.85);
         showText('light-mode-icon', 2.25)
         showText('divider', 3.5);

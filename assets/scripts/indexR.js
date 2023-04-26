@@ -40,6 +40,38 @@
         }, delay*1000);
     };
 
+    function animateMainBody(element, distance, duration) {
+        element.style.visibility = "hidden";
+        setTimeout(function() {
+            element.style.visibility= "visible";
+            element.animate([
+                {top: distance + "px", opacity: 0},
+                {top: "-100%", opacity: 1}
+            ], {
+                // delay: delay*1000,
+                duration: duration*1000,
+                iterations: 1,
+                easing : "cubic-bezier(0.2, 0, 0.190, 1)"
+            })
+        }, delay*1000);
+    }
+
+    function animateImage(element, delay, distance, duration) {
+        element.style.visibility = "hidden";
+        setTimeout(function() {
+            element.style.visibility= "visible";
+            element.animate([
+                {top: distance + "px", opacity: 0},
+                {top: "-230px", opacity: 1}
+            ], {
+                // delay: delay*1000,
+                duration: duration*1000,
+                iterations: 1,
+                easing : "cubic-bezier(0.2, 0, 0.190, 1)"
+            })
+        }, delay*1000);
+    };
+
     function makeNewPosition(){
         var h = window.screen.height - 50;
         var w = window.screen.width - 50;
@@ -74,6 +106,7 @@
         var bioWidthPercentage = (bioWidth / screen.width) * 100;
         var wave = document.getElementById("wave");
         var text = document.getElementById("text");
+        var image = document.getElementById("my-image");
         // divider.style.width = `${bioWidthPercentage}%`;
         // divider2.style.width = `${bioWidthPercentage}%`;
         lightThemeIcon.style.backgroundImage = "none";
@@ -82,11 +115,13 @@
         var mainContainer = document.getElementById("main-container");
         var elements = [heading, subHeading, divider, bio, divider2, socialLogoContainer];
 
-        mainContainer.style.width = window.innerWidth;
+        
 
-        window.onresize = function() {
-            mainContainer.style.width = window.innerWidth;
-        }
+        // window.onresize = function() {
+        //     // mainContainer.style.width = window.innerWidth;
+        // }
+
+        
 
         lightThemeIcon.style.visibility = "hidden";
         setTimeout( function() {
@@ -108,6 +143,10 @@
         animateElement(bio, 5, -550, 2)
         animateElement(divider2, 6.8, -500, 1.7)
         animateElement(socialLogoContainer, 7.8, -400, 1.5)
+        animateImage(image, 2, -1500, 2)
+
+        // mainContainer.style.maxWidth = window.screen.width;
+        // mainContainer.style.maxHeight = window.screen.height;
 
         lightThemeIcon.onclick = function(e) {
             
