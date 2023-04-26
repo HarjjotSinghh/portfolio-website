@@ -273,7 +273,7 @@ body {
 .spot-blur {
     position: absolute;
     top: 100px;
-    left: 175px;
+    left: 320px;
     opacity: 65%;
     -webkit-filter: blur(220px);
     -moz-filter: blur(220px);
@@ -360,10 +360,20 @@ body {
 
 .social-logo-main:hover {
     animation-name: logo-hover;
-    animation-duration: 3s;
-    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
 }
+.socials-logo-main:not():hover {
+    animation-name: logo-hover2;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
 
 .social-logo {
     /* float: left; */
@@ -406,31 +416,54 @@ body {
 }
 
 @keyframes icon-hover {
-    0%,100% {
-        /* width: 80px;
-        height: 80px; */
+    0% {
+        transform: scale(1);
         opacity: 100%;
     }
-    50% {
-        /* width: 90px;
-        height: 90px; */
+    100% {
+        transform: scale(1.1);
         opacity: 70%;
     }
 }
 
+@keyframes icon-hover2 {
+    0% {
+        transform: scale(1.1);
+        opacity: 70%;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 100%;
+    }
+}
+
+
+
 @keyframes logo-hover {
-    0%,100% {
+    0% {
         width: 80px;
         height: 80px;
         opacity: 100%;
     }
-    50% {
+    100% {
         width: 90px;
         height: 90px;
         opacity: 80%;
     }
 }
 
+@keyframes logo-hover2 {
+    0% {
+        width: 90px;
+        height: 90px;
+        opacity: 100%;
+    }
+    100% {
+        width: 80px;
+        height: 80px;
+        opacity: 80%;
+    }
+}
 
 
 /* .social-logo-container:hover {
@@ -591,16 +624,33 @@ a {
 
 .dark-mode-icon:hover {
     animation-name: icon-hover;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
+.dark-mode-icon:not():hover {
+    animation-name: icon-hover2;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
 
 .light-mode-icon:hover {
     animation-name: icon-hover;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.light-mode-icon:not():hover {
+    animation-name: icon-hover2;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .center {
@@ -638,13 +688,30 @@ a {
     /* width: 1200px;
     height: 1200px; */
     top: 400px;
-    left: 75px;
+    /* left: 75px; */
     margin: 0;
     overflow-wrap: break-word;
     display: flex;
     flex-direction: row;
     /* align-items: center; */
-    /* justify-content: space-around; */
+    /* justify-content: space-evenly; */
+    /* overflow: hidden; */
+    width: 100%;
+    height: 100%;
+}
+
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden; */
+    display: none;
+}
+
+.page.active {
+    display: block;
 }
 
 @media only screen and (max-width: 890px) {
@@ -742,10 +809,10 @@ a {
 }
 
 .my-image{
+    position: absolute;
     visibility: visible;
-    left: 780px;
-    top: -230px;
-    position: relative;
+    left: 950px;
+    /* top: -230px; */
     transform: scale(0.6);
     /* animation: image-animation 2s linear 2s 1; */
     -moz-user-select: none;
@@ -790,15 +857,23 @@ a {
     width: 80px;
     height: 80px;
     z-index: 1;
-    position: absolute;
-    bottom: 300px;
-    left: 750px;
+    /* bottom: 300px;
+    left: 750px; */
+
 }
 .nav-arrow:hover {
     animation-name: icon-hover;
-    animation-duration: 2s;
+    animation-duration: 0.5s;
     animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+}
+
+.nav-arrow-container {
+    position: fixed;
+    top: 750px;
+    left: 900px
 }
 
 /* .nav-arrow-container {
@@ -813,3 +888,40 @@ a {
         transform: scale(0.62);
     }
 }
+
+#loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(34, 34, 34);;
+    z-index: 9999;
+}
+
+.spinner {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 15px solid #fefefe;
+    border-top-color: #1277fa;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slide-up {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-100%);
+    }
+  }

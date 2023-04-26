@@ -29,13 +29,14 @@
         setTimeout(function() {
             element.style.visibility= "visible";
             element.animate([
-                {marginLeft: distance + "px", opacity: 0},
-                {marginLeft: "0px", opacity: 1}
+                {left: distance + "px", opacity: 0},
+                {left: `230px`, opacity: 1}
             ], {
                 // delay: delay*1000,
                 duration: duration*1000,
                 iterations: 1,
-                easing : "cubic-bezier(0.2, 0, 0.190, 1)"
+                easing : "cubic-bezier(0.2, 0, 0.190, 1)",
+                fill: "forwards"
             })
         }, delay*1000);
     };
@@ -67,7 +68,25 @@
                 // delay: delay*1000,
                 duration: duration*1000,
                 iterations: 1,
-                easing : "cubic-bezier(0.2, 0, 0.190, 1)"
+                easing : "cubic-bezier(0.2, 0, 0.190, 1)",
+                fill: "forwards"
+            })
+        }, delay*1000);
+    };
+
+    function animateNavArrow(element, delay, duration) {
+        element.style.visibility = "hidden";
+        setTimeout(function() {
+            element.style.visibility= "visible";
+            element.animate([
+                {opacity: 0},
+                {opacity: 1}
+            ], {
+                // delay: delay*1000,
+                duration: duration*1000,
+                iterations: 1,
+                easing : "cubic-bezier(0.2, 0, 0.190, 1)",
+                fill: "forwards"
             })
         }, delay*1000);
     };
@@ -107,6 +126,7 @@
         var wave = document.getElementById("wave");
         var text = document.getElementById("text");
         var image = document.getElementById("my-image");
+        var navArrow = document.getElementById("nav-arrow-container");
         // divider.style.width = `${bioWidthPercentage}%`;
         // divider2.style.width = `${bioWidthPercentage}%`;
         lightThemeIcon.style.backgroundImage = "none";
@@ -114,14 +134,25 @@
         var y = [x.bottom, x.left]
         var mainContainer = document.getElementById("main-container");
         var elements = [heading, subHeading, divider, bio, divider2, socialLogoContainer];
-
+        // elements.forEach(e => {
+        //     elem.style.visibility = "hidden";
+        // });
+        var loadingScreen = document.getElementById('loading-screen');
+          loadingScreen.style.display = 'none';
         
+        const pages = document.querySelectorAll('.page');
+        let currentPageIndex = 0;
 
-        // window.onresize = function() {
-        //     // mainContainer.style.width = window.innerWidth;
-        // }
+        navArrow.addEventListener('click', () => {
 
-        
+            pages[currentPageIndex].style.animation = 'slide-up 1s forwards';
+
+            setTimeout(() => {
+              pages[currentPageIndex].classList.remove('active');
+              currentPageIndex = (currentPageIndex + 1) % pages.length;
+              pages[currentPageIndex].classList.add('active');
+            }, 1000);
+          });
 
         lightThemeIcon.style.visibility = "hidden";
         setTimeout( function() {
@@ -144,6 +175,7 @@
         animateElement(divider2, 6.8, -500, 1.7)
         animateElement(socialLogoContainer, 7.8, -400, 1.5)
         animateImage(image, 2, -1500, 2)
+        animateNavArrow(navArrow, 7, 1)
 
         // mainContainer.style.maxWidth = window.screen.width;
         // mainContainer.style.maxHeight = window.screen.height;

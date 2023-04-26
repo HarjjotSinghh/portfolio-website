@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script>
+        window.onload = function() {
+          var loadingScreen = document.getElementById('loading-screen');
+          loadingScreen.style.display = 'none';
+        };
+      </script>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Harjot Singh</title>
@@ -18,7 +24,9 @@
     <script src='assets/scripts/indexR.js'></script>
 </head>
 <body>
-    
+    <div id="loading-screen">
+        <div class="spinner"></div>
+    </div>
     <div class = "spot-blur" id="spot-blur">
     </div>
     <div class="whole-whole" id="whole-whole">
@@ -36,7 +44,7 @@
     </div>
     
     <div class="main-container" id = "main-container">
-        <div>
+        <div class="page active" id="page1">
             <div class="headings text" id="text">
                 <h1 class = "heading-text" id = "heading-text" unselectable="on" onselectstart="return false;" onmousedown="return false;">
                     <span class="smaller-heading-text">
@@ -113,13 +121,14 @@
                     </a>
                 </div>
             </div>
+            <img src="assets/images/myself.png" alt="" class="my-image" id = "my-image" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+            
         </div>
-        <img src="assets/images/myself.png" alt="" class="my-image" id = "my-image" unselectable="on" onselectstart="return false;" onmousedown="return false;">
-        <a href="" class="nav-arrow-container" id="nav-arrow-container">
-            <img draggable="false" src="assets/svgs/arrow.svg" class="nav-arrow" id="nav-arrow">
-        </a>
+        <div class="page" id="page2">
+
+        </div>
     </div>
-    
+   
     
 
     <!-- <button class="light-mode-icon" id="light-mode-icon">
@@ -132,7 +141,9 @@
         <img draggable="false" src="assets/svgs/moon_color_theme.svg" class="dark-mode-icon" id="dark-mode-icon">
     </a>
     <div id="overlay"></div>
-    
+    <span class="nav-arrow-container" id="nav-arrow-container">
+        <img draggable="false" src="assets/svgs/arrow.svg" class="nav-arrow" id="nav-arrow">
+    </span>
     
 </body>
 </html>
