@@ -127,21 +127,128 @@
         var text = document.getElementById("text");
         var image = document.getElementById("my-image");
         var navArrow = document.getElementById("nav-arrow-container");
+        var aboutMe = document.getElementById("about-me");
+        var aboutMeText = document.getElementById("about-me-text");
+        var skillsText = document.getElementById("skills-text");
+        var skillHeadings = document.getElementsByClassName("skill-heading");
         // divider.style.width = `${bioWidthPercentage}%`;
         // divider2.style.width = `${bioWidthPercentage}%`;
         lightThemeIcon.style.backgroundImage = "none";
         var x = bio.getBoundingClientRect();
         var y = [x.bottom, x.left]
         var mainContainer = document.getElementById("main-container");
+        var backgroundWrapper = document.getElementById("background-wrapper");
         var elements = [heading, subHeading, divider, bio, divider2, socialLogoContainer];
         // elements.forEach(e => {
         //     elem.style.visibility = "hidden";
         // });
         var loadingScreen = document.getElementById('loading-screen');
           loadingScreen.style.display = 'none';
-        
+          
+        mainContainer.style.width = `${window.innerWidth}px`;
+        mainContainer.style.height = `${window.innerHeight}px`;
+        mainContainer.style.maxWidth = `${window.innerWidth}px`;
+        mainContainer.style.maxHeight = `${window.innerHeight}px`;
+
         const pages = document.querySelectorAll('.page');
         let currentPageIndex = 0;
+
+        // const workContainer = document.getElementById('work-container');
+        // const boxes = document.querySelectorAll('.box');
+        // const backArrow = document.querySelector('.back-arrow');
+        // const originalBoxRects = [];
+        // const originalBoxStyles = [];
+
+        // boxes.forEach((box) => {
+        //     // Store the original size and position of the boxes
+        //     originalBoxRects.push(box.getBoundingClientRect());
+        //     originalBoxStyles.push({
+        //       position: box.style.position,
+        //       top: box.style.top,
+        //       left: box.style.left,
+        //       width: box.style.width,
+        //       height: box.style.height,
+        //     });
+          
+        //     box.addEventListener('click', () => {
+        //       // Animate the selected box to its big size and position
+        //       const boxRect = box.getBoundingClientRect();
+        //       const containerRect = workContainer.getBoundingClientRect();
+        //       const bigBoxRect = {
+        //         top: boxRect.top - containerRect.top + 'px',
+        //         left: boxRect.left - containerRect.left + 'px',
+        //         width: containerRect.width + 'px',
+        //         height: containerRect.height + 'px',
+        //       };
+          
+        //       box.animate(
+        //         [
+        //           {
+        //             top: boxRect.top - containerRect.top + 'px',
+        //             left: boxRect.left - containerRect.left + 'px',
+        //             width: boxRect.width + 'px',
+        //             height: boxRect.height + 'px',
+        //           },
+        //           bigBoxRect,
+        //         ],
+        //         {
+        //           duration: 500,
+        //           easing: 'ease-in-out',
+        //           fill: "forwards"
+        //         }
+        //       ).onfinish = () => {
+        //         // Bring the selected box to the front
+        //         box.style.zIndex = '1';
+        //         box.classList.add('big');
+          
+        //         // Show the back arrow and add styles for the big container
+        //         workContainer.classList.add('big');
+        //       };
+        //     });
+        //   });
+          
+        //   backArrow.addEventListener('click', () => {
+        //     boxes.forEach((box, index) => {
+        //       // Animate the boxes back to their original sizes and positions
+        //       const boxStyle = window.getComputedStyle(box);
+        //       const boxRect = originalBoxRects[index];
+          
+        //       box.animate(
+        //         [
+        //           {
+        //             top: boxStyle.top,
+        //             left: boxStyle.left,
+        //             width: boxStyle.width,
+        //             height: boxStyle.height,
+        //           },
+        //           {
+        //             top: boxRect.top - workContainer.getBoundingClientRect().top + 'px',
+        //             left: boxRect.left - workContainer.getBoundingClientRect().left + 'px',
+        //             width: boxRect.width + 'px',
+        //             height: boxRect.height + 'px',
+        //           },
+        //         ],
+        //         {
+        //           duration: 500,
+        //           easing: 'ease-in-out',
+        //         }
+        //       ).onfinish = () => {
+        //         // Reset the box styles to their original values
+        //         box.style.position = originalBoxStyles[index].position;
+        //         box.style.top = originalBoxStyles[index].top;
+        //         box.style.left = originalBoxStyles[index].left;
+        //         box.style.width = originalBoxStyles[index].width;
+        //         box.style.height = originalBoxStyles[index].height;
+          
+        //         box.classList.remove('big');
+        //       };
+        //     });
+          
+        //     // Remove the styles added for the big container
+        //     workContainer.classList.remove('big');
+        //   });
+
+          
 
         navArrow.addEventListener('click', () => {
 
@@ -207,7 +314,7 @@
                 return
             }
             var duration = 1500;
-            var elementsToAnimate = [heading, subHeading, bio, divider, divider2];
+            var elementsToAnimate = [heading, subHeading, bio, divider, divider2, aboutMe, aboutMeText, skillsText, skillHeadings];
             lightThemeIcon.animate([
                 {right: "5%"},
                 {right: "-10%"}
@@ -257,6 +364,18 @@
             spotBlur.style.backgroundColor = "rgb(2, 149, 255)";
             spotBlur.style.opacity = "15%";
 
+            // text.animate([
+            //     {
+            //         color: "#e5e3e0",
+            //         color: "rgb(34, 34, 34)"
+            //     }
+            // ], {
+            //     duration: duration,
+            //     iterations: 1,
+            //     easing : "cubic-bezier(0.2, 0, 0.190, 1)"
+            // });
+            // text.style.color = "rgb(34, 34, 34)";
+
             elementsToAnimate.forEach( function(element) {
                 if (element === divider || element === divider2) {
                     element.animate([
@@ -269,6 +388,19 @@
                     });
                     element.style.borderTop = "0.3vh solid rgb(34, 34, 34)";
                     
+                }
+                if (element === skillHeadings) {
+                    for (let i = 0; i < skillHeadings.length; i++) {
+                        skillHeadings[i].animate([ 
+                            {color: "#e5e3e0"},
+                            {color: "rgb(34, 34, 34)"}
+                        ], {
+                            duration: duration,
+                            iterations: 1,
+                            easing : "cubic-bezier(0.2, 0, 0.190, 1)"
+                        });
+                        skillHeadings[i].style.color = "rgb(34, 34, 34)";
+                    };
                 }
                 else  {
                     element.animate([
@@ -305,7 +437,7 @@
                 return
             }
             var duration = 1500;
-            var elementsToAnimate = [heading, subHeading, bio, divider, divider2];
+            var elementsToAnimate = [heading, subHeading, bio, divider, divider2, aboutMe, aboutMeText, skillsText, skillHeadings];
             darkThemeIcon.animate([
                 {right: "5%"},
                 {right: "-10%"}
@@ -355,6 +487,18 @@
             spotBlur.style.backgroundColor = "rgb(45, 115, 255)";
             spotBlur.style.opacity = "50%";
 
+            // text.animate([
+            //     {
+            //         color: "rgb(34, 34, 34)",
+            //         color: "#e5e3e0"
+            //     }
+            // ], {
+            //     duration: duration,
+            //     iterations: 1,
+            //     easing : "cubic-bezier(0.2, 0, 0.190, 1)"
+            // });
+            // text.style.color = "#e5e3e0";
+
             elementsToAnimate.forEach( function(element) {
                 if (element === divider || element === divider2) {
                     element.animate([
@@ -367,6 +511,19 @@
                     });
                     element.style.borderTop = "0.3vh solid rgb(218, 218, 218)";
                     
+                }
+                if (element === skillHeadings) {
+                    for (let i = 0; i < skillHeadings.length; i++) {
+                        skillHeadings[i].animate([ 
+                            {color: "rgb(34, 34, 34)"},
+                            {color: "#e5e3e0"}
+                        ], {
+                            duration: duration,
+                            iterations: 1,
+                            easing : "cubic-bezier(0.2, 0, 0.190, 1)"
+                        });
+                        skillHeadings[i].style.color = "#e5e3e0";
+                    };
                 }
                 else  {
                     element.animate([

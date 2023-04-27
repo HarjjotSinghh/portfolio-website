@@ -11,7 +11,9 @@ html, body {
     margin-top: 0;
     overflow: hidden;
     overflow-x: hidden;
+    background-color: rgb(34, 34, 34);
 }
+
 
 .text {
     color: #e5e3e0;
@@ -20,10 +22,6 @@ html, body {
     -ms-user-select:none;
     user-select:none;
     -o-user-select:none;
-}
-
-body {
-    background-color: rgb(34, 34, 34);
 }
 
 .color-theme {
@@ -199,7 +197,6 @@ body {
   box-shadow: inset 0 0 10vw rgb(28, 88, 251);
   animation: spin 28s infinite linear;
   mix-blend-mode: add;
-
 }
 
 .wave::before {
@@ -250,6 +247,12 @@ body {
     margin-top: -300px;
 
 }
+
+/* .background-wrapper {
+    overflow: auto;
+    height: 100vh;
+  }
+   */
 
 /* background soft blur */
 
@@ -698,8 +701,6 @@ a {
     /* align-items: center; */
     /* justify-content: space-evenly; */
     /* overflow: hidden; */
-    width: 100%;
-    height: 100%;
 }
 
 .page {
@@ -875,7 +876,7 @@ a {
 
 .nav-arrow-container {
     position: fixed;
-    top: 750px;
+    top: 800px;
     left: 900px
 }
 
@@ -959,31 +960,98 @@ to {
 .page2-container {
     position: relative;
     left: 0;
-    padding: 100px;
+    left: 230px;
     display: flex;
     flex-direction: row;
 }
 
 .about-me {
-    font-size: 50px;
+    font-size: 70px;
     font-family: 'Manrope', sans-serif;
     color: rgb(251, 251, 251);
 }
 
 .about-me-text {
-    font-size: 18px;
+    font-size: 20px;
     font-family: 'Manrope', sans-serif;
     color: rgb(251, 251, 251);
-    max-width: 700px;
+    max-width: 1000px;
     overflow-wrap: break-word;
 }
 
 .skills-text {
-    font-size: 50px;
+    font-size: 70px;
     font-family: 'Manrope', sans-serif;
     color: rgb(251, 251, 251);
 }
-skills-container {
+.skills-container {
+    position: relative;
+    left: 230px;
+    
+}
+
+.skill-heading {
+    font-size: 50px;
+    font-family: 'Manrope', sans-serif;
+    color: rgb(251, 251, 251);
+    font-weight: 900;
     position: absolute;
-    left: 200px;
+    align-self: center;
+}
+
+.work-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 1375px;
+    height: 500px;
+}
+
+.box {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex: 1 0 calc(50% - 20px);
+    height: 50%;
+    margin: 10px;
+    padding: 10px;
+    background: -webkit-linear-gradient(270deg, rgb(0, 251, 255), rgb(6, 130, 216));;
+    border-radius: 20px;
+    transition: all 0.5s ease-in-out;    
+    opacity: 0.9;
+}
+
+@keyframes work-scale-up {
+    from {
+        transform: scale(1);
+    }
+    to {
+        opacity: 0.88;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes work-scale-down {
+    from {
+        transform: scale(1.05);
+        opacity: 0.88;
+    }
+    to {
+        transform: scale(1.0);
+    }
+}
+
+.box:hover{
+    animation: work-scale-up 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s 1;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.box:not(:hover) {
+    animation-name: work-scale-down;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-fill-mode: forwards;
 }
