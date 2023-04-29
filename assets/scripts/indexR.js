@@ -24,13 +24,14 @@
         setTimeout(function(){elem.style.visibility='visible';},delay*1000)
     }
 
-    function animateElement(element, delay, distance, duration) {
+    function animateElement(element, delay, duration) {
         element.style.visibility = "hidden";
         setTimeout(function() {
             element.style.visibility= "visible";
             element.animate([
-                {left: distance + "px", opacity: 0},
-                {left: `230px`, opacity: 1}
+                {transform: `translateX(-100%)`,
+                 opacity: 0},
+                {opacity: 1}
             ], {
                 // delay: delay*1000,
                 duration: duration*1000,
@@ -57,13 +58,13 @@
         }, delay*1000);
     }
 
-    function animateImage(element, delay, distance, duration) {
+    function animateImage(element, delay, duration) {
         element.style.visibility = "hidden";
         setTimeout(function() {
             element.style.visibility= "visible";
             element.animate([
-                {top: distance + "px", opacity: 0},
-                {top: "-230px", opacity: 1}
+                {transform: `translateY(-100%)`, opacity: 0},
+                {opacity: 1}
             ], {
                 // delay: delay*1000,
                 duration: duration*1000,
@@ -126,7 +127,8 @@
         var wave = document.getElementById("wave");
         var text = document.getElementById("text");
         var image = document.getElementById("my-image");
-        var navArrow = document.getElementById("nav-arrow-container");
+        var navArrowContainer = document.getElementById("nav-arrow-container");
+        var navArrow = document.getElementById("nav-arrow");
         var aboutMe = document.getElementById("about-me");
         var aboutMeText = document.getElementById("about-me-text");
         var skillsText = document.getElementById("skills-text");
@@ -145,10 +147,10 @@
         var loadingScreen = document.getElementById('loading-screen');
           loadingScreen.style.display = 'none';
           
-        mainContainer.style.width = `${window.innerWidth}px`;
-        mainContainer.style.height = `${window.innerHeight}px`;
-        mainContainer.style.maxWidth = `${window.innerWidth}px`;
-        mainContainer.style.maxHeight = `${window.innerHeight}px`;
+        // mainContainer.style.width = `${window.innerWidth}px`;
+        // mainContainer.style.height = `${window.innerHeight}px`;
+        // mainContainer.style.maxWidth = `${window.innerWidth}px`;
+        // mainContainer.style.maxHeight = `${window.innerHeight}px`;
 
         const pages = document.querySelectorAll('.page');
         let currentPageIndex = 0;
@@ -271,10 +273,24 @@
               currentPageIndex = (currentPageIndex + 1) % pages.length;
               pages[currentPageIndex].classList.add('active');
               for (let i = currentPageIndex; i >= 0; i--) {
+                // if (pages[i].id.localeCompare("page1")) {
+                //     navArrowContainer.style.marginTop = "-180px";
+                //     mainContainer.style.top = "0px";
+                // }
+                // else {
+                //     if (pages[i].id.localeCompare("page2")) {
+                //         navArrowContainer.style.marginTop = "200px";
+                //     };
+                //     if (pages[i].id.localeCompare("page3")) {
+                //         navArrowContainer.style.marginTop = "100px";
+                //     };
+                // };
+                // console.log(pages[i].id);
+                
                 pages[i].style.animation = 'slide-up2 2s cubic-bezier(0.2, 0, 0.190, 1) forwards';
-              }
+              };
               setTimeout(() => {
-                navArrow.style.display = 'block';
+                navArrow.style.display = 'flex';
                 navArrow.style.animation = 'fade-in 1s cubic-bezier(0.2, 0, 0.190, 1) forwards';
                 // navArrow.style.opacity = '1';
                 
@@ -295,14 +311,14 @@
             })
         }, 2000);
         
-
-        animateElement(heading, 0, -500, 1.7)
-        animateElement(subHeading, 1.7, -500, 1.7)
-        animateElement(divider, 3.6, -500, 1.7)
-        animateElement(bio, 5, -550, 2)
-        animateElement(divider2, 6.8, -500, 1.7)
-        animateElement(socialLogoContainer, 7.8, -400, 1.5)
-        animateImage(image, 2, -1500, 2)
+        // go here
+        animateElement(heading, 0, 1.7)
+        animateElement(subHeading, 1.7, 1.7)
+        animateElement(divider, 3.6, 1.7)
+        animateElement(bio, 5, 2)
+        animateElement(divider2, 6.8, 1.7)
+        animateElement(socialLogoContainer, 7.8, 1.5)
+        animateImage(image, 2, 2)
         animateNavArrow(navArrow, 8, 1)
 
         // mainContainer.style.maxWidth = window.screen.width;
@@ -314,7 +330,7 @@
                 return
             }
             var duration = 1500;
-            var elementsToAnimate = [heading, subHeading, bio, divider, divider2, aboutMe, aboutMeText, skillsText, skillHeadings];
+            var elementsToAnimate = [heading, subHeading, bio, divider, divider2, aboutMe, aboutMeText, skillsText];
             lightThemeIcon.animate([
                 {right: "5%"},
                 {right: "-10%"}
@@ -437,7 +453,7 @@
                 return
             }
             var duration = 1500;
-            var elementsToAnimate = [heading, subHeading, bio, divider, divider2, aboutMe, aboutMeText, skillsText, skillHeadings];
+            var elementsToAnimate = [heading, subHeading, bio, divider, divider2, aboutMe, aboutMeText, skillsText];
             darkThemeIcon.animate([
                 {right: "5%"},
                 {right: "-10%"}

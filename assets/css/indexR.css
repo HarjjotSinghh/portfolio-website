@@ -11,6 +11,7 @@ html, body {
     margin-top: 0;
     overflow: hidden;
     overflow-x: hidden;
+    touch-action: none;
     background-color: rgb(34, 34, 34);
 }
 
@@ -87,10 +88,20 @@ html, body {
 }
 
 
-/* .headings {
-    top: 50%;
-    position: absolute;
-} */
+.heading-container {
+    display: inline-block;
+    /* overflow: auto; */
+    width: fit-content;
+    height: fit-content;
+
+    
+}
+
+.heading-container::after {
+    content: "";
+    display: table;
+    /* overflow: auto; */
+  }
 
 /* .headings p {
     margin-top: -12vh;
@@ -102,16 +113,17 @@ html, body {
 
 .heading-text::before {
     text-shadow: 2px 2px 20px rgb(34, 34, 34);
-    position: absolute;
+    /* position: absolute; */
 }
 
 .heading-text {
+    padding-bottom: 20px;
     visibility: visible;
     cursor: default;
     /* display: inline; */
     opacity: 100%;
     /* margin-top: -81.5%; */
-    position: absolute;
+    /* position: absolute; */
     /* left: 8%;
     top: 12%;  */
     line-height: 70%;
@@ -134,11 +146,11 @@ html, body {
     /* display: inline; */
     opacity: 100%;
     margin-top: 0;
-    position: absolute;
+    /* position: absolute; */
     /* left: 8%;
     top: 34%; */
-    top: 175px;
-    line-height: 70%;
+    /* top: 175px; */
+    /* line-height: 70%; */
     font-size: 28px;
     font-family: 'Manrope', sans-serif;
     color: rgb(251, 251, 251);
@@ -248,12 +260,14 @@ html, body {
 
 }
 
-/* .background-wrapper {
-    overflow: auto;
-    height: 100vh;
+.background-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
   }
-   */
-
 /* background soft blur */
 
 @keyframes spot-blur-move {
@@ -277,8 +291,8 @@ html, body {
 
 .spot-blur {
     position: absolute;
-    top: 100px;
-    left: 320px;
+    top: 200px;
+    left: 300px;
     opacity: 65%;
     -webkit-filter: blur(220px);
     -moz-filter: blur(220px);
@@ -301,16 +315,11 @@ html, body {
 
 /* socials */
 
-.socials-container {
-    position: absolute;
-    /* height: 1000px;
-    width: 1000px; */
-}
 
 .socials,
 .socials::after,
 .socials::before {
-    position: absolute;
+    /* position: absolute; */
     border-radius: 30%;
     background: -webkit-linear-gradient(-30deg, rgb(0, 229, 255), rgb(2, 149, 255));
     width: 7vw;
@@ -321,7 +330,7 @@ html, body {
 }
 
 .icons{
-    position: absolute;
+    /* position: absolute; */
     background: linear-gradient(-40deg, rgb(0, 229, 255), rgb(2, 149, 255));
     align-items: center;
     justify-content: center;
@@ -348,22 +357,32 @@ html, body {
 }
 
 .social-logo-container {
-    position: absolute;
+    /* position: absolute; */
     content: "";
     clear: both;
-    display: table;
-    top: 385px;
+    display: flex;
+    /* top: 385px; */
+    transition: margin-right 0.2s ease-in-out;
 }
 
 .social-logo-main {
     float:left;
     width: 33.3%;
-    padding-right: 15px;
-    width: 80px;
-    height: 80px;
+    /* padding-right: 15px; */
+    width: 70px;
+    height: 70px;
+    transform-origin: left top;
+    margin-right: 15px;
+    transition: margin-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-name: logo-hover2;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .social-logo-main:hover {
+    margin-right: 30px;
     animation-name: logo-hover;
     animation-duration: 0.5s;
     animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -383,17 +402,18 @@ html, body {
 .social-logo {
     /* float: left; */
     visibility: visible;
-    position: absolute;
+    /* position: absolute; */
     width: 70px;
     height: 70px;
     opacity: 100%;
+    transition: all 0.2s ease-in-out;
     
 }
 
 .social-logo2 {
     /* float: left; */
     visibility: visible;
-    position: absolute;
+    /* position: absolute; */
     /* margin-left: 10vh; */
     /* width: 8vw;
     height: auto; */
@@ -405,18 +425,20 @@ html, body {
     animation-duration: 2.2s; */
     width: 70px;
     height: 70px;
+    transition: all 0.2s ease-in-out;
 }
 
 .social-logo3 {
     /* float: left; */
     visibility: visible;
-    position: absolute;
+    /* position: absolute; */
     /* width: 8vw;
     height: auto; */
     /* left: 8%; */
     /* top: 64%; */
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
+    transition: all 0.2s ease-in-out;
     
 }
 
@@ -446,28 +468,25 @@ html, body {
 
 @keyframes logo-hover {
     0% {
-        width: 80px;
-        height: 80px;
-        opacity: 100%;
+        transform: scale(1);
+        opacity: 1;
     }
     100% {
-        width: 90px;
-        height: 90px;
-        opacity: 80%;
+        transform: scale(1.2);
+        opacity: 0.75;
     }
 }
 
 @keyframes logo-hover2 {
     0% {
-        width: 90px;
-        height: 90px;
-        opacity: 100%;
+        transform: scale(1.2);
+        opacity: 0.75;
     }
     100% {
-        width: 80px;
-        height: 80px;
-        opacity: 80%;
+        transform: scale(1);
+        opacity: 1;
     }
+
 }
 
 
@@ -503,10 +522,10 @@ html, body {
     border: none;
     background: #fbfbfb;
     color: #fbfbfb;
-    position: absolute;
+    /* position: absolute; */
     width: 430px;
     height: 2px;
-    top: 205px;
+    /* top: 205px; */
     /* margin-top: 1.2vh; */
     /* filter: brightness(3.5); */
     
@@ -528,10 +547,11 @@ html, body {
     border: none;
     background: #fbfbfb;
     color: #fbfbfb;
-    position: absolute;
+    /* position: absolute; */
     width: 430px;
     height: 2px;
-    top: 355px;
+    margin-top: -30px;
+    /* top: 355px; */
     /* margin-top: 1.2vh; */
     /* filter: brightness(3.5); */
     
@@ -554,19 +574,20 @@ a {
 .bio {
     margin-left: 0;
     padding-left: 0;
+    margin-top: -40px;
     /* padding-right: 8%; */
     cursor: default;
     /* top: 39%;
     left: 8%; */
     visibility: visible;
-    top: 240px;
+    /* top: 240px; */
     /* margin-top: 4vh; */
     /* line-height: 150%; */
-    font-size: 19px;
+    font-size: 18px;
     font-family: 'Manrope', sans-serif;
     color: rgb(251, 251, 251);
-    position: absolute;
-    display: inline;
+    /* position: absolute; */
+    /* display: inline; */
     /* animation-name: text-animation-heading;
     animation-timing-function: cubic-bezier(0.2, 0, 0.190, 1);
     animation-delay: 4s;
@@ -692,19 +713,19 @@ a {
     position: relative;
     /* width: 1200px;
     height: 1200px; */
-    top: 400px;
     /* left: 75px; */
+    top: 100px;
     margin: 0;
     overflow-wrap: break-word;
     display: flex;
-    flex-direction: row;
     /* align-items: center; */
     /* justify-content: space-evenly; */
     /* overflow: hidden; */
+    height: auto;
 }
 
 .page {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     width: 100%;
@@ -713,11 +734,19 @@ a {
     display: none;
 }
 
-.page.active {
-    display: block;
+#page1 {
+    width: 100%;
+    height: calc(100% - 200px);
 }
 
-@media only screen and (max-width: 890px) {
+.active {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: left;
+}
+
+/* @media only screen and (max-width: 780px) {
 
     .main-container{
         position: relative;
@@ -809,13 +838,13 @@ a {
     .bacground-waves {
         margin-top: -500px;
     }
-}
+} */
 
 .my-image{
-    position: absolute;
+    /* position: absolute; */
     visibility: visible;
-    left: 950px;
-    /* top: -230px; */
+    /* left: 950px;
+    top: -230px; */
     transform: scale(0.6);
     /* animation: image-animation 2s linear 2s 1; */
     -moz-user-select: none;
@@ -823,6 +852,10 @@ a {
     -ms-user-select:none;
     user-select:none;
     -o-user-select:none;
+    /* flex: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; */
 }
 
 .my-image:hover{
@@ -876,8 +909,14 @@ a {
 
 .nav-arrow-container {
     position: fixed;
-    top: 800px;
-    left: 900px
+    justify-content: center;
+    align-self: center;
+    width: 100vw;
+    left: 0;
+    bottom: 50px;
+    display: flex;
+    /* bottom: -220px; */
+    overflow: visible;
 }
 
 /* .nav-arrow-container {
@@ -924,18 +963,24 @@ a {
 @keyframes slide-up {
     from {
       transform: translateY(0);
+      opacity: 1;
     }
     to {
-      transform: translateY(-100%);
+      transform: translateY(-200%);
+      opacity: 0;
+
     }
   }
 
 @keyframes slide-up2 {
 from {
-    transform: translateY(100%);
+    transform: translateY(200%);
+    opacity: 0;
 }
 to {
     transform: translateY(0);
+    opacity: 1;
+
 }
 }
 
@@ -960,9 +1005,12 @@ to {
 .page2-container {
     position: relative;
     left: 0;
-    left: 230px;
+    /* left: 230px; */
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-self: center;
+    /* margin-top: 180px; */
 }
 
 .about-me {
@@ -986,7 +1034,7 @@ to {
 }
 .skills-container {
     position: relative;
-    left: 230px;
+    /* left: 230px; */
     
 }
 
@@ -995,7 +1043,7 @@ to {
     font-family: 'Manrope', sans-serif;
     color: rgb(251, 251, 251);
     font-weight: 900;
-    position: absolute;
+    /* position: absolute; */
     align-self: center;
 }
 
@@ -1003,8 +1051,9 @@ to {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    width: 1375px;
-    height: 500px;
+    align-items: center;
+    justify-content: center;
+    height: 120%;
 }
 
 .box {
@@ -1015,11 +1064,12 @@ to {
     flex: 1 0 calc(50% - 20px);
     height: 50%;
     margin: 10px;
-    padding: 10px;
+    padding: 15px;
     background: -webkit-linear-gradient(270deg, rgb(0, 251, 255), rgb(6, 130, 216));;
-    border-radius: 20px;
+    border-radius: 30px;
     transition: all 0.5s ease-in-out;    
-    opacity: 0.9;
+    opacity: 0.95;
+    width: 20vw;
 }
 
 @keyframes work-scale-up {
@@ -1028,13 +1078,13 @@ to {
     }
     to {
         opacity: 0.88;
-        transform: scale(1.05);
+        transform: scale(1.03);
     }
 }
 
 @keyframes work-scale-down {
     from {
-        transform: scale(1.05);
+        transform: scale(1.03);
         opacity: 0.88;
     }
     to {
@@ -1054,4 +1104,106 @@ to {
     animation-duration: 0.5s;
     animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     animation-fill-mode: forwards;
+}
+
+.main-main-container {
+    position: relative;
+}
+
+.image-container {
+    display:flex; width: 516.6px; height: 586.2px; flex: 1; justify-content: center; align-items: center;
+}
+
+.heading-container {
+    width: 50%; height: auto; display: flex; align-items: baseline; align-items: center; justify-content: center;
+}
+
+@media only screen and (max-width: 780px) {
+
+    .main-container {
+        overflow: visible;
+    }
+    .image-container {
+        width: 100%;
+        display: none;
+    }
+    .active {
+        flex-direction: column;
+        overflow: visible;
+    }
+    .heading-container {
+        /* transform: scale(0.5); */
+        width: 100%;
+    }
+    .heading-text {
+        font-size: 44px;
+    }
+    .sub-heading-text {
+        margin-top: -10px;
+        font-size: 14px;
+    }
+    .smaller-heading-text {
+        font-size: 25px;
+        margin-left: 2px;
+    }
+    .bio {
+        font-size: 10px;
+        margin-top: -50px;
+    }
+    .social-logo-main {
+        width: 35px;
+        height: 35px;
+        margin-right: 7px;
+
+    }
+    .light-mode-icon {
+        width: 35px;
+        height: 35px;
+    }
+    .dark-mode-icon {
+        width: 35px;
+        height: 35px;
+    }
+    .divider {
+        width: 200px;
+        margin-top: 5px;
+    }
+    .divider2 {
+        width: 200px;
+        margin-top: -26px;
+    }
+    .social-logo-container {
+        margin-top: -10px;
+    }
+    .whole {
+        bottom: -1200px;
+        right: 600px;
+    }
+    .spot-blur {
+        display: none;
+    }
+    .about-me {
+        font-size: 48px;
+    }
+    .about-me-text {
+        font-size: 14px;
+    }
+    .nav-arrow {
+        width: 45px;
+        height: 45px;
+    }
+    .skills-text {
+        font-size: 48px;
+    }
+    .work-container {
+        height: 100%;
+    }
+    .box { 
+        flex-direction: column;
+        flex: auto;
+        width: 100%;
+    }
+    .skill-heading {
+        font-size:30px;
+    }
 }
