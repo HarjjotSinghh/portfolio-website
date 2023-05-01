@@ -6,7 +6,7 @@ html, body {
     height: 100%;
     margin: 0;
     border: 0;
-    padding: 10px;
+    /* padding: 10px; */
     top: 0;
     margin-top: 0;
     overflow: hidden;
@@ -14,6 +14,7 @@ html, body {
     touch-action: none;
     background-color: rgb(34, 34, 34);
 }
+
 
 
 .text {
@@ -151,7 +152,7 @@ html, body {
     top: 34%; */
     /* top: 175px; */
     /* line-height: 70%; */
-    font-size: 28px;
+    font-size: 26px;
     font-family: 'Manrope', sans-serif;
     color: rgb(251, 251, 251);
     /* animation-name: text-animation-heading;
@@ -714,14 +715,15 @@ a {
     /* width: 1200px;
     height: 1200px; */
     /* left: 75px; */
-    top: 100px;
+    /* top: 10px; */
     margin: 0;
     overflow-wrap: break-word;
     display: flex;
     /* align-items: center; */
     /* justify-content: space-evenly; */
     /* overflow: hidden; */
-    height: auto;
+    width: 100%;
+    height: 100%;
 }
 
 .page {
@@ -734,16 +736,14 @@ a {
     display: none;
 }
 
-#page1 {
-    width: 100%;
-    height: calc(100% - 200px);
-}
-
 .active {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     text-align: left;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
 }
 
 /* @media only screen and (max-width: 780px) {
@@ -1035,7 +1035,12 @@ to {
 .skills-container {
     position: relative;
     /* left: 230px; */
-    
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    margin-top: -100px;
+
 }
 
 .skill-heading {
@@ -1053,7 +1058,7 @@ to {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    height: 120%;
+    height: 50%;
 }
 
 .box {
@@ -1107,11 +1112,18 @@ to {
 }
 
 .main-main-container {
+    width: 100%;
+    height: 100%;
     position: relative;
 }
 
 .image-container {
-    display:flex; width: 516.6px; height: 586.2px; flex: 1; justify-content: center; align-items: center;
+    display:flex; 
+    width: 50%;
+    height: 100%;
+    /* width: 516.6px; 
+    height: 586.2px;  */
+    flex: 1; justify-content: center; align-items: center;
 }
 
 .heading-container {
@@ -1130,10 +1142,12 @@ to {
     .active {
         flex-direction: column;
         overflow: visible;
+        
     }
     .heading-container {
         /* transform: scale(0.5); */
         width: 100%;
+        /* padding: 10px; */
     }
     .heading-text {
         font-size: 44px;
@@ -1183,20 +1197,23 @@ to {
         display: none;
     }
     .about-me {
-        font-size: 48px;
+        font-size: 32px;
     }
     .about-me-text {
-        font-size: 14px;
+        font-size: 12px;
     }
     .nav-arrow {
         width: 45px;
         height: 45px;
     }
     .skills-text {
-        font-size: 48px;
+        font-size: 44px;
     }
     .work-container {
-        height: 100%;
+        height: 30%;
+    }
+    .skills-container {
+        margin-top: -200px;
     }
     .box { 
         flex-direction: column;
@@ -1205,5 +1222,8 @@ to {
     }
     .skill-heading {
         font-size:30px;
+    }
+    .nav-arrow-container {
+        bottom: 20px;
     }
 }

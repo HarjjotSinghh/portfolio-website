@@ -18,6 +18,7 @@
 
 
 
+
 (function(window, document, undefined){
     function showText(id,delay){
         var elem=document.getElementById(id);
