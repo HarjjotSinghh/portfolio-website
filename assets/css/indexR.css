@@ -913,8 +913,9 @@ a {
     align-self: center;
     width: 100vw;
     left: 0;
-    bottom: 50px;
+    bottom: 2%;
     display: flex;
+    /* padding: 5px; */
     /* bottom: -220px; */
     overflow: visible;
 }
@@ -1014,13 +1015,13 @@ to {
 }
 
 .about-me {
-    font-size: 70px;
+    font-size: 60px;
     font-family: 'Manrope', sans-serif;
     color: rgb(251, 251, 251);
 }
 
 .about-me-text {
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Manrope', sans-serif;
     color: rgb(251, 251, 251);
     max-width: 1000px;
@@ -1224,6 +1225,6 @@ to {
         font-size:30px;
     }
     .nav-arrow-container {
-        bottom: 20px;
+        bottom: 3%;
     }
 }
