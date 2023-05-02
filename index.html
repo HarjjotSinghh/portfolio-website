@@ -11,6 +11,8 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Harjot Singh</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2.3.0/dist/flickity.css" />
+    <script src="https://unpkg.com/flickity@2.3.0/dist/flickity.pkgd.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&family=Rubik&display=swap" rel="stylesheet">
@@ -21,7 +23,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='assets/css/indexR.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src='assets/scripts/indexR.js'></script>
+    <script src='assets/scripts/index-bundle.js'></script>
 </head>
 <body>
     <div id="loading-screen">
@@ -169,34 +171,62 @@
                     <div class="work-container" id="work-container">
                         <div class="graphics-designer box" id="graphics-designer">
                             <h2 class="skill-heading text" id = "skill-heading">Graphic Designing</h2>
-                            <div class="graphics-designing-work-container" style="display: none;">
+                            <div class="sub-work-container" style="display: none;">
+                                <div class="gfx-flickity">
+                                    <div class="gfx-work-cell">
+                                        <img draggable="false" src="./assets/images/2D-Logos.png" alt="">
+                                    </div>
+                                    <div class="gfx-work-cell">
+                                        <img draggable="false" src="./assets/images/3D-Logos.png" alt="">
+                                    </div>
+                                    <div class="gfx-work-cell">
+                                        <img draggable="false" src="./assets/images/Banners-Posters.png" alt="">
+                                    </div>
+                                    <div class="gfx-work-cell">
+                                        <img draggable="false" src="./assets/images/Twitter-Headers.png" alt="">
+                                    </div>
+                                    <div class="gfx-work-cell">
+                                        <img draggable="false" src="./assets/images/YouTube-Banners.png" alt="">
+                                    </div>
+                                    
+                                </div>
                                 <div class="graphics-designing-skills">
-
+                                    <h2 class="sub-skills-text text">Software<br>Used</h2>
+                                    <div class="gfx-skills-logos">
+                                        <img class="skill-icon" draggable="false" src="./assets/svgs/photoshop.svg" alt="">
+                                        <img class="skill-icon" draggable="false" src="./assets/svgs/illustrator.svg" alt="">
+                                        <img class="skill-icon" draggable="false" src="./assets/svgs/lightroom.svg" alt="">
+                                        <img class="skill-icon" style="transform: scale(0.8);" draggable="false" src="./assets/svgs/blender.svg" alt="">
+                                    </div>
                                 </div>
                             </div>
+                            
                         </div>
                         <div class="visual-editor box" id="visual-editor">
                             <h2 class="skill-heading text" id = "skill-heading">Visual Editing</h2>
                             <div class="visual-editing-work-container" style="display: none;">
-                                <div class="visual-editing-skills">
+                                
+                            </div>
+                            <div class="visual-editing-skills">
 
-                                </div>
                             </div>
                         </div>
                         <div class="web-developer box" id="web-developer">
                             <h2 class="skill-heading text" id = "skill-heading" >Web Development</h2>
                             <div class="web-development-work-container" style="display: none;">
-                                <div class="web-development-skills">
+                                
+                            </div>
+                            <div class="web-development-skills">
 
-                                </div>
                             </div>
                         </div>
                         <div class="music-producer box" id="music-producer">
                             <h2 class="skill-heading text" id = "skill-heading">Music Production</h2>
                             <div class="music-production-work-container" style="display: none;">
-                                <div class="music-production-skills">
+                                
+                            </div>
+                            <div class="music-production-skills">
 
-                                </div>
                             </div>
                         </div>
                         

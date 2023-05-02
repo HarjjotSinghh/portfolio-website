@@ -1,22 +1,4 @@
-// var theDelay = 2;
-// document.getElementById("sub-heading-text").style.visibility = "hidden";
-
-// function timer() {
-    
-//     setTimeout( function(){
-//         toggleText();    
-//     }, theDelay * 1000 );
-// }
-// // Call the timer
-// timer();
-
-// // Toggle visibility
-// function toggleText() {
-//     document.getElementById("sub-heading-text").style.visibility = "visible";
-// }
-// toggleText();
-
-
+var Flickity = require('flickity-imagesloaded');
 
 
 (function(window, document, undefined){
@@ -150,7 +132,20 @@
         var boxes = document.getElementsByClassName("box");
         var backArrow = document.getElementById("back-arrow-img");
         var headingss = document.getElementsByClassName("skill-heading");
+        var gfxWorkContainer = document.querySelector(".gfx-flickity");
+        
 
+        // window.addEventListener('load', function() {
+        //     var flickity = document.querySelector('.gfx-flickity').flickityInstance;
+        //     flickity.resize();
+        // });
+        
+        // window.addEventListener('resize', function() {
+        //     var flickity = document.querySelector('.gfx-flickity').flickityInstance;
+        //     flickity.resize();
+        // });
+
+        var subWorkContainers = document.getElementsByClassName("sub-work-container");
           
         // mainContainer.style.width = `${window.innerWidth}px`;
         // mainContainer.style.height = `${window.innerHeight}px`;
@@ -159,35 +154,78 @@
 
         const pages = document.querySelectorAll('.page');
         let currentPageIndex = 0;
+        var currentBigBoxes = document.getElementsByClassName("big-box");
+        var gfxFlickity;
 
         for (let i = 0; i < boxes.length; i++) {
             boxes[i].addEventListener('click', () => {
+                
+              if (currentBigBoxes.length === 0) {
                 for (let j = 0; j < boxes.length; j++) {
-                    if (!(boxes[i].isEqualNode(boxes[j]))) {
-                        boxes[j].style.display = "none";
-                    };
-                    boxes[j].removeEventListener('click', null);
-
-                };
+                  if (!(boxes[i].isEqualNode(boxes[j]))) {
+                    boxes[j].style.display = "none";
+                  } else {
+                    skillsText.innerHTML = `<span class='color-theme'>${headingss[i].textContent}</span>`;
+                  }
+                }
                 for (let k = 0; k < headingss.length; k++) {
-                    headingss[k].style.display = "none";
-                };
+                  headingss[k].style.display = "none";
+                }
+                for (let l = 0; l < subWorkContainers.length; l++) {
+                  subWorkContainers[l].style.display = "flex";
+                }
+                setTimeout(function() {
+                    gfxFlickity = new Flickity(gfxWorkContainer, {
+                        cellAlign: 'center',
+                        contain: true,
+                        wrapAround: true,
+                        imagesLoaded: true,
+                        autoPlay: 2000,
+                        pageDots: false,
+                        setGallerySize: false,
+                        percentPosition: true,
+                        resize: true
+                    });
+                }, 20);
+                try {
+                    gfxFlickity.resize();
+
+                } catch {};
+
                 boxes[i].classList.add("big-box");
                 boxes[i].classList.remove("box");
+                
                 backArrow.style.display = "block";
+              };
             });
-        };
+          };
+        
+
+        window.dispatchEvent(new Event('resize'));
+        gfxWorkContainer.addEventListener('autoplayStart', function() {
+            gfxFlickity.resize();
+        });
+        gfxWorkContainer.style.height = gfxWorkContainer.clientHeight + "px";
+        
 
         backArrow.addEventListener('click', () => {
-            var currentBigBox = document.getElementsByClassName("big-box")[0];
-            currentBigBox.classList.add("box");
-            currentBigBox.classList.remove("big-box");
+            var currentBigBoxes = document.getElementsByClassName("big-box");
 
+            skillsText.innerHTML = "My<span class='color-theme'> Work</span>";
+            for (let i = 0; i < currentBigBoxes.length; i++) {
+                currentBigBoxes.item(i).classList.add("box");
+                currentBigBoxes.item(i).classList.remove("big-box");
+            };
             for (let i = 0; i < boxes.length; i++) {
                 boxes[i].style.display = "flex";
+                boxes[i].classList.add("box");
+                boxes[i].classList.remove("big-box");
             };
             for (let k = 0; k < headingss.length; k++) {
                 headingss[k].style.display = "block";
+            };
+            for (let l = 0; l < subWorkContainers.length; l++) {
+                subWorkContainers[l].style.display = "none";
             };
             backArrow.style.display = "none";
         });
@@ -510,180 +548,6 @@
             darkMode = true;
         };
 
-        // if (window.screen.width > window.screen.height) {
-        //     divider2.style.left = `${y[1]}px`;
-        //     divider2.style.top = `calc(${y[0]}px)`;
-        //     socialLogo.style.height = "8vh";
-        //     socialLogo.style.width = "auto";
-        //     socialLogo2.style.height = "8vh";
-        //     socialLogo2.style.width = "auto";
-        //     socialLogo3.style.height = "8vh";
-        //     socialLogo3.style.width = "auto";
-        //     socialLogo2.style.marginLeft = "10vh";
-        //     socialLogo3.style.marginLeft = "20vh";
-
-        //     lightThemeIcon.style.height = "8vh";
-        //     lightThemeIcon.style.width = "8vh";
-        //     darkThemeIcon.style.height = "8vh";
-        //     darkThemeIcon.style.width = "8vh";
-        //     // sunIcon.style.height = "5vh";
-        //     // sunIcon.style.width = "5vh";
-
-        //     spotBlur.style.height = "35vh";
-        //     spotBlur.style.width = "35vh";
-        // } else if (window.screen.height > window.screen.width) {
-        //     if ((window.screen.height - window.screen.width) > 300) {
-        //         heading.style.top = "23%";
-        //         divider.style.top = "36%";
-        //         bio.style.top = "35%";
-        //         divider2.style.top = "51%"
-        //     }
-
-        //     socialLogo.style.height = "auto";
-        //     socialLogo.style.width = "8vw";
-        //     socialLogo2.style.height = "auto";
-        //     socialLogo2.style.width = "8vw";
-        //     socialLogo3.style.height = "auto";
-        //     socialLogo3.style.width = "8vw";
-        //     socialLogo2.style.marginLeft = "10vw";
-        //     socialLogo3.style.marginLeft = "20vw";
-
-        //     lightThemeIcon.style.height = "8vw";
-        //     lightThemeIcon.style.width = "8vw";
-        //     darkThemeIcon.style.height = "8vw";
-        //     darkThemeIcon.style.width = "8vw";
-        //     // sunIcon.style.height = "5vw";
-        //     // sunIcon.style.width = "5vw";
-
-        //     spotBlur.style.height = "35vw";
-        //     spotBlur.style.width = "35vw";
-        // }
-
-        // // if (window.screen.width > window.screen.height) {
-        // //     divider.style.width = `calc(${window.screen.width * 0.3})`;
-        // //     divider2.style.width = `calc(${window.screen.width * 0.3})`;
-        // // } else if (window.screen.height > window.screen.width) {
-        // //     divider.style.width = `calc(${window.screen.width * 0.5})`;
-        // //     divider2.style.width = `calc(${window.screen.width * 0.5})`;
-        // // }
-        
-        // showText('heading-text', 0.2)
-        // showText('sub-heading-text', 1.85);
-        // showText('light-mode-icon', 2.25)
-        // showText('divider', 3.5);
-        // showText('bio', 4.3);
-        // showText('social-logo', 5.8);
-        // showText('social-logo2', 5.8);
-        // showText('social-logo3', 5.8);
-        // showText('divider2', 5.8);
-
-        
-        
-        
-        // socialLogoContainer.style.left = `${y[1]}px`;
-        // socialLogoContainer.style.top = `calc(${y[0]}px + 2.5vh)`;
-        // var twitterCoords_ = socialLogo.getBoundingClientRect();
-        // var twitterCoords = [twitterCoords_.top, twitterCoords_.left];
-        // // socialLogo2.style.left = `calc(${twitterCoords[1]}px + 10vh)`;
-        // // socialLogo2.style.top = `calc(${twitterCoords[0]}px)`;
-        
-
-        // // document.getElementById("sub-heading-text").animate(
-        // //     [
-        // //     {
-        // //         "left": "-70%",
-        // //     },
-        // //     {
-        // //         "left": "8%",
-        // //     }
-        // // ], {
-        // //     duration: 2000,
-        // //     iterations:1,
-        // //     delay: 1700,
-        // //     easing: "cubic-bezier(0.23, 1, 0.320, 1)",
-        // // }
-        // // );
-        // // document.getElementById("sub-heading-text").style.left = "8%";
-        
-        
-
-        // window.onresize = function(e) {
-        //     var x = bio.getBoundingClientRect();
-        //     var y = [x.bottom, x.left]
-        //     var twitterCoords_ = socialLogo.getBoundingClientRect();
-        //     var twitterCoords = [twitterCoords_.top, twitterCoords_.left];
-            
-        //     // console.log(y);
-        //     // var a = socialLogo.getBoundingClientRect();
-        //     // var b = [a.bottom, a.left];
-        //     socialLogoContainer.style.left = `${y[1]}px`;
-        //     socialLogoContainer.style.top = `calc(${y[0]}px + 2.5vh)`;
-        //     // console.log(socialLogo.style.top);
-        //     divider2.style.left = `${y[1]}px`;
-        //     divider2.style.top = `calc(${y[0]}px)`;
-        //     // socialLogo2.style.left = `calc(${twitterCoords[1]}px + 10vh)`;
-        //     // socialLogo2.style.top = `calc(${twitterCoords[0]}px)`;
-
-
-        //     if (window.screen.width > window.screen.height) {
-        //         divider2.style.left = `${y[1]}px`;
-        //         divider2.style.top = `calc(${y[0]}px)`;
-        //         socialLogo.style.height = "8vh";
-        //         socialLogo.style.width = "auto";
-        //         socialLogo2.style.height = "8vh";
-        //         socialLogo2.style.width = "auto";
-        //         socialLogo3.style.height = "8vh";
-        //         socialLogo3.style.width = "auto";
-        //         socialLogo2.style.marginLeft = "10vh";
-        //         socialLogo3.style.marginLeft = "20vh";
-
-        //         lightThemeIcon.style.height = "8vh";
-        //         lightThemeIcon.style.width = "8vh";
-        //         darkThemeIcon.style.height = "8vh";
-        //         darkThemeIcon.style.width = "8vh";
-        //         // sunIcon.style.height = "5vh";
-        //         // sunIcon.style.width = "5vh";
-
-        //         spotBlur.style.height = "35vh";
-        //         spotBlur.style.width = "35vh";
-            
-        //     } else if (window.screen.height > window.screen.width) {
-        //         if ((window.screen.height - window.screen.width) > 300) {
-        //             heading.style.top = "23%";
-        //             divider.style.top = "36%";
-        //             bio.style.top = "35%";
-        //             divider2.style.top = "51%"
-        //         } 
-                
-        //         socialLogo.style.height = "auto";
-        //         socialLogo.style.width = "8vw";
-        //         socialLogo2.style.height = "auto";
-        //         socialLogo2.style.width = "8vw";
-        //         socialLogo3.style.height = "auto";
-        //         socialLogo3.style.width = "8vw";
-        //         socialLogo2.style.marginLeft = "10vw";
-        //         socialLogo3.style.marginLeft = "20vw";
-
-        //         lightThemeIcon.style.height = "8vw";
-        //         lightThemeIcon.style.width = "8vw";
-        //         darkThemeIcon.style.height = "8vw";
-        //         darkThemeIcon.style.width = "8vw";
-        //         // sunIcon.style.height = "5vw";
-        //         // sunIcon.style.width = "5vw";
-
-        //         spotBlur.style.height = "35vw";
-        //         spotBlur.style.width = "35vw";
-        //     }
-
-        //     // if (window.screen.width > window.screen.height) {
-        //     //     divider.style.width = "30%";
-        //     //     divider2.style.width = "30%";
-        //     // } else if (window.screen.height > window.screen.width) {
-        //     //     divider.style.width = "50%";
-        //     //     divider2.style.width = "50%";
-        //     // }
-
-        // }
 
         document.body.onmousemove = function(e) {
             var x = e.clientX;
