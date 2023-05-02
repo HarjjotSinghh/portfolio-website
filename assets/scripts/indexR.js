@@ -147,6 +147,10 @@
         // });
         var loadingScreen = document.getElementById('loading-screen');
           loadingScreen.style.display = 'none';
+        var boxes = document.getElementsByClassName("box");
+        var backArrow = document.getElementById("back-arrow-img");
+        var headingss = document.getElementsByClassName("skill-heading");
+
           
         // mainContainer.style.width = `${window.innerWidth}px`;
         // mainContainer.style.height = `${window.innerHeight}px`;
@@ -156,102 +160,37 @@
         const pages = document.querySelectorAll('.page');
         let currentPageIndex = 0;
 
-        // const workContainer = document.getElementById('work-container');
-        // const boxes = document.querySelectorAll('.box');
-        // const backArrow = document.querySelector('.back-arrow');
-        // const originalBoxRects = [];
-        // const originalBoxStyles = [];
+        for (let i = 0; i < boxes.length; i++) {
+            boxes[i].addEventListener('click', () => {
+                for (let j = 0; j < boxes.length; j++) {
+                    if (!(boxes[i].isEqualNode(boxes[j]))) {
+                        boxes[j].style.display = "none";
+                    };
+                    boxes[j].removeEventListener('click', null);
 
-        // boxes.forEach((box) => {
-        //     // Store the original size and position of the boxes
-        //     originalBoxRects.push(box.getBoundingClientRect());
-        //     originalBoxStyles.push({
-        //       position: box.style.position,
-        //       top: box.style.top,
-        //       left: box.style.left,
-        //       width: box.style.width,
-        //       height: box.style.height,
-        //     });
-          
-        //     box.addEventListener('click', () => {
-        //       // Animate the selected box to its big size and position
-        //       const boxRect = box.getBoundingClientRect();
-        //       const containerRect = workContainer.getBoundingClientRect();
-        //       const bigBoxRect = {
-        //         top: boxRect.top - containerRect.top + 'px',
-        //         left: boxRect.left - containerRect.left + 'px',
-        //         width: containerRect.width + 'px',
-        //         height: containerRect.height + 'px',
-        //       };
-          
-        //       box.animate(
-        //         [
-        //           {
-        //             top: boxRect.top - containerRect.top + 'px',
-        //             left: boxRect.left - containerRect.left + 'px',
-        //             width: boxRect.width + 'px',
-        //             height: boxRect.height + 'px',
-        //           },
-        //           bigBoxRect,
-        //         ],
-        //         {
-        //           duration: 500,
-        //           easing: 'ease-in-out',
-        //           fill: "forwards"
-        //         }
-        //       ).onfinish = () => {
-        //         // Bring the selected box to the front
-        //         box.style.zIndex = '1';
-        //         box.classList.add('big');
-          
-        //         // Show the back arrow and add styles for the big container
-        //         workContainer.classList.add('big');
-        //       };
-        //     });
-        //   });
-          
-        //   backArrow.addEventListener('click', () => {
-        //     boxes.forEach((box, index) => {
-        //       // Animate the boxes back to their original sizes and positions
-        //       const boxStyle = window.getComputedStyle(box);
-        //       const boxRect = originalBoxRects[index];
-          
-        //       box.animate(
-        //         [
-        //           {
-        //             top: boxStyle.top,
-        //             left: boxStyle.left,
-        //             width: boxStyle.width,
-        //             height: boxStyle.height,
-        //           },
-        //           {
-        //             top: boxRect.top - workContainer.getBoundingClientRect().top + 'px',
-        //             left: boxRect.left - workContainer.getBoundingClientRect().left + 'px',
-        //             width: boxRect.width + 'px',
-        //             height: boxRect.height + 'px',
-        //           },
-        //         ],
-        //         {
-        //           duration: 500,
-        //           easing: 'ease-in-out',
-        //         }
-        //       ).onfinish = () => {
-        //         // Reset the box styles to their original values
-        //         box.style.position = originalBoxStyles[index].position;
-        //         box.style.top = originalBoxStyles[index].top;
-        //         box.style.left = originalBoxStyles[index].left;
-        //         box.style.width = originalBoxStyles[index].width;
-        //         box.style.height = originalBoxStyles[index].height;
-          
-        //         box.classList.remove('big');
-        //       };
-        //     });
-          
-        //     // Remove the styles added for the big container
-        //     workContainer.classList.remove('big');
-        //   });
+                };
+                for (let k = 0; k < headingss.length; k++) {
+                    headingss[k].style.display = "none";
+                };
+                boxes[i].classList.add("big-box");
+                boxes[i].classList.remove("box");
+                backArrow.style.display = "block";
+            });
+        };
 
-          
+        backArrow.addEventListener('click', () => {
+            var currentBigBox = document.getElementsByClassName("big-box")[0];
+            currentBigBox.classList.add("box");
+            currentBigBox.classList.remove("big-box");
+
+            for (let i = 0; i < boxes.length; i++) {
+                boxes[i].style.display = "flex";
+            };
+            for (let k = 0; k < headingss.length; k++) {
+                headingss[k].style.display = "block";
+            };
+            backArrow.style.display = "none";
+        });
 
         navArrow.addEventListener('click', () => {
 
