@@ -1,4 +1,4 @@
-var Flickity = require('flickity-imagesloaded');
+// const { AutoPlay } = require("@egjs/flicking-plugins");
 
 
 (function(window, document, undefined){
@@ -6,7 +6,7 @@ var Flickity = require('flickity-imagesloaded');
         var elem=document.getElementById(id);
         setTimeout(function(){elem.style.visibility='visible';},delay*1000)
     }
-
+    
     function animateElement(element, delay, duration) {
         element.style.visibility = "hidden";
         setTimeout(function() {
@@ -108,7 +108,7 @@ var Flickity = require('flickity-imagesloaded');
         var bioWidth = bioRect.width * 0.5;
         var bioWidthPercentage = (bioWidth / screen.width) * 100;
         var wave = document.getElementById("wave");
-        var text = document.getElementById("text");
+        var text = document.getElementsByClassName("text");
         var image = document.getElementById("my-image");
         var navArrowContainer = document.getElementById("nav-arrow-container");
         var navArrow = document.getElementById("nav-arrow");
@@ -133,29 +133,81 @@ var Flickity = require('flickity-imagesloaded');
         var backArrow = document.getElementById("back-arrow-img");
         var headingss = document.getElementsByClassName("skill-heading");
         var gfxWorkContainer = document.querySelector(".gfx-flickity");
-        
+        var subSkillsTexts = document.getElementsByClassName("sub-skills-text");
+        var skillIcons = document.getElementsByClassName("skill-icon");
+        const gfxFlicking = new Flicking("#gfx-flickity", {
+            align: "center",
+            circular: true,
+            bound: true,
+            renderOnlyVisible: true,
+            bounce: "50%",
+            inputType: ["touch", "mouse", "pointer"],
+          });
+        gfxFlicking.addPlugins(new Flicking.Plugins.AutoPlay({
+            autoplay: true,
+            duration: 1500,
+            animationDuration: 800,
+            stopOnHover: true
+        }));
+        gfxFlicking.addPlugins(new Flicking.Plugins.Arrow());
 
-        // window.addEventListener('load', function() {
-        //     var flickity = document.querySelector('.gfx-flickity').flickityInstance;
-        //     flickity.resize();
-        // });
+        const vfxFlicking = new Flicking("#vfx-flickity", {
+            align: "center",
+            circular: true,
+            bound: true,
+            renderOnlyVisible: true,
+            bounce: "50%",
+            inputType: ["touch", "mouse", "pointer"],
+          });
+        vfxFlicking.addPlugins(new Flicking.Plugins.AutoPlay({
+            autoplay: true,
+            duration: 1500,
+            animationDuration: 800,
+            stopOnHover: true
+        }));
+        vfxFlicking.addPlugins(new Flicking.Plugins.Arrow());
+
+        const webdevFlicking = new Flicking("#web-dev-flickity", {
+            align: "center",
+            circular: true,
+            bound: true,
+            renderOnlyVisible: true,
+            bounce: "50%",
+            inputType: ["touch", "mouse", "pointer"],
+          });
+        webdevFlicking.addPlugins(new Flicking.Plugins.AutoPlay({
+            autoplay: true,
+            duration: 1500,
+            animationDuration: 800,
+            stopOnHover: true
+        }));
+        webdevFlicking.addPlugins(new Flicking.Plugins.Arrow());
+
+        const musicprodFlicking = new Flicking("#music-prod-flickity", {
+            align: "center",
+            circular: true,
+            bound: true,
+            renderOnlyVisible: true,
+            bounce: "50%",
+            inputType: ["touch", "mouse", "pointer"],
+          });
+          musicprodFlicking.addPlugins(new Flicking.Plugins.AutoPlay({
+            autoplay: true,
+            duration: 1500,
+            animationDuration: 800,
+            stopOnHover: true
+        }));
+        musicprodFlicking.addPlugins(new Flicking.Plugins.Arrow());
+
         
-        // window.addEventListener('resize', function() {
-        //     var flickity = document.querySelector('.gfx-flickity').flickityInstance;
-        //     flickity.resize();
-        // });
 
         var subWorkContainers = document.getElementsByClassName("sub-work-container");
           
-        // mainContainer.style.width = `${window.innerWidth}px`;
-        // mainContainer.style.height = `${window.innerHeight}px`;
-        // mainContainer.style.maxWidth = `${window.innerWidth}px`;
-        // mainContainer.style.maxHeight = `${window.innerHeight}px`;
+        
 
         const pages = document.querySelectorAll('.page');
         let currentPageIndex = 0;
         var currentBigBoxes = document.getElementsByClassName("big-box");
-        var gfxFlickity;
 
         for (let i = 0; i < boxes.length; i++) {
             boxes[i].addEventListener('click', () => {
@@ -165,7 +217,8 @@ var Flickity = require('flickity-imagesloaded');
                   if (!(boxes[i].isEqualNode(boxes[j]))) {
                     boxes[j].style.display = "none";
                   } else {
-                    skillsText.innerHTML = `<span class='color-theme'>${headingss[i].textContent}</span>`;
+                    // console.log(headingss[i].textContent)
+                    skillsText.innerHTML = `${headingss[i].textContent.toString().trim().split(' ')[0]} <span class='color-theme'>${headingss[i].textContent.toString().trim().split(' ')[1]}</span>`;
                   }
                 }
                 for (let k = 0; k < headingss.length; k++) {
@@ -174,27 +227,9 @@ var Flickity = require('flickity-imagesloaded');
                 for (let l = 0; l < subWorkContainers.length; l++) {
                   subWorkContainers[l].style.display = "flex";
                 }
-                setTimeout(function() {
-                    gfxFlickity = new Flickity(gfxWorkContainer, {
-                        cellAlign: 'center',
-                        contain: true,
-                        wrapAround: true,
-                        imagesLoaded: true,
-                        autoPlay: 2000,
-                        pageDots: false,
-                        setGallerySize: false,
-                        percentPosition: true,
-                        resize: true
-                    });
-                }, 20);
-                try {
-                    gfxFlickity.resize();
-
-                } catch {};
-
+                
                 boxes[i].classList.add("big-box");
                 boxes[i].classList.remove("box");
-                
                 backArrow.style.display = "block";
               };
             });
@@ -202,9 +237,6 @@ var Flickity = require('flickity-imagesloaded');
         
 
         window.dispatchEvent(new Event('resize'));
-        gfxWorkContainer.addEventListener('autoplayStart', function() {
-            gfxFlickity.resize();
-        });
         gfxWorkContainer.style.height = gfxWorkContainer.clientHeight + "px";
         
 
@@ -227,13 +259,15 @@ var Flickity = require('flickity-imagesloaded');
             for (let l = 0; l < subWorkContainers.length; l++) {
                 subWorkContainers[l].style.display = "none";
             };
+            // gfxWorkContainer.style.display = "none";
             backArrow.style.display = "none";
+
         });
 
         navArrow.addEventListener('click', () => {
 
             navArrow.style.animation = 'fade-out 1s cubic-bezier(0.2, 0, 0.190, 1) forwards';
-
+            navArrow.style.pointerEvents = 'none';
 
             for (let i = currentPageIndex; i >= 0; i--) {
               pages[i].style.animation = 'slide-up 2s cubic-bezier(0.2, 0, 0.190, 1) forwards';
@@ -270,6 +304,7 @@ var Flickity = require('flickity-imagesloaded');
               setTimeout(() => {
                 navArrow.style.display = 'flex';
                 navArrow.style.animation = 'fade-in 1s cubic-bezier(0.2, 0, 0.190, 1) forwards';
+                navArrow.style.pointerEvents = 'all';
                 // navArrow.style.opacity = '1';
                 
               }, 1000);
@@ -280,24 +315,25 @@ var Flickity = require('flickity-imagesloaded');
         setTimeout( function() {
             lightThemeIcon.style.visibility = "visible";
             lightThemeIcon.animate([
-                {right: "-10%"},
-                {right: "5%"}
+                {opacity: "0"},
+                {opacity: "1"}
             ], {
                 duration: 1700,
                 iterations: 1,
-                easing : "cubic-bezier(0.2, 0, 0.190, 1)"
+                easing : "cubic-bezier(0.2, 0, 0.190, 1)",
+                fill: "forwards"
             })
         }, 2000);
         
         // go here
-        animateElement(heading, 0, 1.7)
-        animateElement(subHeading, 1.7, 1.7)
-        animateElement(divider, 3.6, 1.7)
-        animateElement(bio, 5, 2)
-        animateElement(divider2, 6.8, 1.7)
-        animateElement(socialLogoContainer, 7.8, 1.5)
-        animateImage(image, 2, 2)
-        animateNavArrow(navArrow, 8, 1)
+        // animateElement(heading, 0, 1.7)
+        // animateElement(subHeading, 1.7, 1.7)
+        // animateElement(divider, 3.6, 1.7)
+        // animateElement(bio, 5, 2)
+        // animateElement(divider2, 6.8, 1.7)
+        // animateElement(socialLogoContainer, 7.8, 1.5)
+        // animateImage(image, 2, 2)
+        // animateNavArrow(navArrow, 8, 1)
 
         // mainContainer.style.maxWidth = window.screen.width;
         // mainContainer.style.maxHeight = window.screen.height;
@@ -308,27 +344,29 @@ var Flickity = require('flickity-imagesloaded');
                 return
             }
             var duration = 1500;
-            var elementsToAnimate = [heading, subHeading, bio, divider, divider2, aboutMe, aboutMeText, skillsText];
+            var elementsToAnimate = [text, heading, subHeading, bio, divider, divider2, aboutMe, aboutMeText, skillsText, subSkillsTexts, skillIcons];
             lightThemeIcon.animate([
-                {right: "5%"},
-                {right: "-10%"}
+                {opacity: "1"},
+                {opacity: "0"}
             ],{
                 duration: 1000,
                 iterations: 1,
-                easing: "cubic-bezier(0.2, 0, 0.190, 1)"
+                easing: "cubic-bezier(0.2, 0, 0.190, 1)",
+                fill: "forwards"
             })
             setTimeout( function () {
                 lightThemeIcon.style.visibility = "hidden";
                 darkThemeIcon.style.visibility = "visible";
                 darkThemeIcon.animate([
-                    {right: "-10%"},
-                    {right: "5%"}
+                    {opacity: "0"},
+                    {opacity: "1"}
                 ],{
                     duration: 1000,
                     iterations: 1,
-                    easing: "cubic-bezier(0.2, 0, 0.190, 1)"
+                    easing: "cubic-bezier(0.2, 0, 0.190, 1)",
+                    fill: "forwards"
                 })
-            }, 1000)
+            }, 1200);
             
             wave.animate([
                 {mixBlendMode: "add",
@@ -371,7 +409,33 @@ var Flickity = require('flickity-imagesloaded');
             // text.style.color = "rgb(34, 34, 34)";
 
             elementsToAnimate.forEach( function(element) {
-                if (element === divider || element === divider2) {
+                if (element === skillIcons) {
+                    for (let i = 0; i < skillIcons.length; i++) {
+                        skillIcons[i].animate([ 
+                            {filter: "brightness(1)"},
+                            {filter: "brightness(0.13)"}
+                        ], {
+                            duration: duration,
+                            iterations: 1,
+                            easing : "cubic-bezier(0.2, 0, 0.190, 1)"
+                        });
+                        skillIcons[i].style.filter = "brightness(0.13)";
+                    };
+                }
+                else if (element === text) {
+                    for (let i = 0; i < text.length; i++) {
+                        text[i].animate([ 
+                            {color: "#e5e3e0"},
+                            {color: "rgb(34, 34, 34)"}
+                        ], {
+                            duration: duration,
+                            iterations: 1,
+                            easing : "cubic-bezier(0.2, 0, 0.190, 1)"
+                        });
+                        text[i].style.color = "rgb(34, 34, 34)";
+                    };
+                }
+                else if (element === divider || element === divider2) {
                     element.animate([
                         {borderTop: "0.3vh solid rgb(218, 218, 218)"},
                         {color: "0.3vh solid rgb(34, 34, 34)"}
@@ -383,7 +447,7 @@ var Flickity = require('flickity-imagesloaded');
                     element.style.borderTop = "0.3vh solid rgb(34, 34, 34)";
                     
                 }
-                if (element === skillHeadings) {
+                else if (element === skillHeadings) {
                     for (let i = 0; i < skillHeadings.length; i++) {
                         skillHeadings[i].animate([ 
                             {color: "#e5e3e0"},
@@ -396,19 +460,20 @@ var Flickity = require('flickity-imagesloaded');
                         skillHeadings[i].style.color = "rgb(34, 34, 34)";
                     };
                 }
-                else  {
-                    element.animate([
-                        {color: "#e5e3e0"},
-                        {color: "rgb(34, 34, 34)"}
-                    ], {
-                        duration: duration,
-                        iterations: 1,
-                        easing : "cubic-bezier(0.2, 0, 0.190, 1)"
-                    });
-                    element.style.color = "rgb(34, 34, 34)";
-                }
-                
-            })
+                else if (element === subSkillsTexts) {
+                    for (let i = 0; i < subSkillsTexts.length; i++) {
+                        subSkillsTexts[i].animate([ 
+                            {color: "#e5e3e0"},
+                            {color: "rgb(34, 34, 34)"}
+                        ], {
+                            duration: duration,
+                            iterations: 1,
+                            easing : "cubic-bezier(0.2, 0, 0.190, 1)"
+                        });
+                        subSkillsTexts[i].style.color = "rgb(34, 34, 34)";
+                    };
+                }        
+            });
             
             document.body.animate([
                 {backgroundColor: "rgb(34, 34, 34)"},
@@ -431,27 +496,29 @@ var Flickity = require('flickity-imagesloaded');
                 return
             }
             var duration = 1500;
-            var elementsToAnimate = [heading, subHeading, bio, divider, divider2, aboutMe, aboutMeText, skillsText];
+            var elementsToAnimate = [text, heading, subHeading, bio, divider, divider2, aboutMe, aboutMeText, skillsText, subSkillsTexts, skillIcons];
             darkThemeIcon.animate([
-                {right: "5%"},
-                {right: "-10%"}
+                {opacity: "100%"},
+                {opacity: "0%"}
             ],{
                 duration: 1000,
                 iterations: 1,
-                easing: "cubic-bezier(0.2, 0, 0.190, 1)"
-            })
+                easing: "cubic-bezier(0.2, 0, 0.190, 1)",
+                fill: "forwards"
+            });
             setTimeout( function () {
                 darkThemeIcon.style.visibility = "hidden";
                 lightThemeIcon.style.visibility = "visible";
                 lightThemeIcon.animate([
-                    {right: "-10%"},
-                    {right: "5%"}
+                    {opacity: "0%"},
+                    {opacity: "100%"}
                 ],{
                     duration: 1000,
                     iterations: 1,
-                    easing: "cubic-bezier(0.2, 0, 0.190, 1)"
+                    easing: "cubic-bezier(0.2, 0, 0.190, 1)",
+                    fill: "forwards"
                 })
-            }, 1000)
+            }, 1200);
             
             wave.animate([
                 {mixBlendMode: "multiply",
@@ -494,7 +561,20 @@ var Flickity = require('flickity-imagesloaded');
             // text.style.color = "#e5e3e0";
 
             elementsToAnimate.forEach( function(element) {
-                if (element === divider || element === divider2) {
+                if (element === skillIcons) {
+                    for (let i = 0; i < skillIcons.length; i++) {
+                        skillIcons[i].animate([ 
+                            {filter: "brightness(0.13)"},
+                            {filter: "brightness(1)"}
+                        ], {
+                            duration: duration,
+                            iterations: 1,
+                            easing : "cubic-bezier(0.2, 0, 0.190, 1)"
+                        });
+                        skillIcons[i].style.filter = "brightness(1)";
+                    };
+                }
+                else if (element === divider || element === divider2) {
                     element.animate([
                         {borderTop: "0.3vh solid rgb(34, 34, 34)"},
                         {color: "0.3vh solid rgb(218, 218, 218)"}
@@ -506,7 +586,20 @@ var Flickity = require('flickity-imagesloaded');
                     element.style.borderTop = "0.3vh solid rgb(218, 218, 218)";
                     
                 }
-                if (element === skillHeadings) {
+                else if (element === text) {
+                    for (let i = 0; i < text.length; i++) {
+                        text[i].animate([ 
+                            {color: "rgb(34, 34, 34)"},
+                            {color: "#e5e3e0"}
+                        ], {
+                            duration: duration,
+                            iterations: 1,
+                            easing : "cubic-bezier(0.2, 0, 0.190, 1)"
+                        });
+                        text[i].style.color = "#e5e3e0";
+                    };
+                }
+                else if (element === skillHeadings) {
                     for (let i = 0; i < skillHeadings.length; i++) {
                         skillHeadings[i].animate([ 
                             {color: "rgb(34, 34, 34)"},
@@ -519,17 +612,19 @@ var Flickity = require('flickity-imagesloaded');
                         skillHeadings[i].style.color = "#e5e3e0";
                     };
                 }
-                else  {
-                    element.animate([
-                        {color: "rgb(34, 34, 34)"},
-                        {color: "#e5e3e0"}
-                    ], {
-                        duration: duration,
-                        iterations: 1,
-                        easing : "cubic-bezier(0.2, 0, 0.190, 1)"
-                    });
-                    element.style.color = "#e5e3e0";
-                }
+                else if (element === subSkillsTexts) {
+                    for (let i = 0; i < subSkillsTexts.length; i++) {
+                        subSkillsTexts[i].animate([ 
+                            {color: "rgb(34, 34, 34)"},
+                            {color: "#e5e3e0"}
+                        ], {
+                            duration: duration,
+                            iterations: 1,
+                            easing : "cubic-bezier(0.2, 0, 0.190, 1)"
+                        });
+                        subSkillsTexts[i].style.color = "#e5e3e0";
+                    };
+                };
                 
             })
             

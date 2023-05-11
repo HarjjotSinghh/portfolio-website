@@ -11,19 +11,19 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Harjot Singh</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2.3.0/dist/flickity.css" />
-    <script src="https://unpkg.com/flickity@2.3.0/dist/flickity.pkgd.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&family=Rubik&display=swap" rel="stylesheet">
-    <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <link rel='stylesheet' type='text/css' media='screen' href='assets/css/indexR.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src='assets/scripts/index-bundle.js'></script>
+    <script src='assets/scripts/indexR.js'></script>
+    <link rel="stylesheet" href="https://unpkg.com/@egjs/flicking/dist/flicking.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/@egjs/flicking/dist/flicking-inline.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://naver.github.io/egjs-flicking-plugins/release/latest/dist/flicking-plugins.css">
 </head>
 <body>
     <div id="loading-screen">
@@ -45,6 +45,7 @@
             </div>
         </div>
     </div>
+    <div class = "spot-blur" id="spot-blur"></div>
     
     <div class="main-main-container">
         <div class="main-container" id = "main-container">
@@ -52,17 +53,20 @@
                 <div class="heading-container">
                     <div style="display: inline-block;">
                         <h1 class = "heading-text" id = "heading-text" unselectable="on" onselectstart="return false;" onmousedown="return false;">
-                            <span class="smaller-heading-text">
+                            <span class="smaller-heading-text text">
                                 Hey,
                             </span>
                             <br>
-                            I am 
+                            <span class="text">
+                                I am 
+                            </span>
+                            
                             <span class="color-theme">
                                 Harjot.
                             </span>
                         </h1>
                 
-                        <h2 class="sub-heading-text" id="sub-heading-text" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                        <h2 class="sub-heading-text text" id="sub-heading-text" unselectable="on" onselectstart="return false;" onmousedown="return false;">
                             A 
                             <span class="color-theme">student</span>
                             and <span class = "color-theme">web developer</span> 
@@ -137,7 +141,7 @@
             </div>
             <div class="page" id="page2">
                 <div class="page2-container" id="page-container">
-                    <div>
+                    <div class="about-me-container">
                         <h1 class="about-me text" id="about-me">
                             A Little Bit
                             <span class="color-theme">
@@ -146,12 +150,11 @@
                         </h1>
                         <p class="about-me-text text" id="about-me-text">
                             Hello! My name is Harjot and I am an engineering student currently based in New Delhi, India. I am highly passionate about Web development and GFX/VFX.
-                            <br>
-                            I started my developer journey by making a full-fledged discord bot in Python using the module discord.py. The bot I mad was called "TrixZ" and it had multiple features like moderation, music, utility, etc.
-                            This project helped me gain the basic knowledge about programming and its functinality, and now, I have gained valuable skills in Python, Javascript, HTML, CSS, etc.<br>
+                            I started my developer journey by making a full-fledged discord bot in Python using the module discord.py. The bot I created was called "TrixZ" and it had multiple features like moderation, music, utility, etc.
+                            This project helped me gain the basic knowledge about programming and its functinality, and now, I have gained valuable skills in Python, Javascript, HTML, CSS, etc.
                             I am very curious about technical things/technology in general, and am always looking for opportunities to learn and grow. 
-                            Whenever I want to learn something new which I am interested in, but have no idea on its working, YouTube always saves my day and I probably would not have been able to learn programming without YouTube.<br>
-                            In my free time, I love to play games like Valorant, Minecraft, etc. I also enjoy  meeting new people and building meaningful connections, so feel free to connect with me on social media.<br>
+                            Whenever I want to learn something new which I am interested in, but have no idea on its working, YouTube always saves my day and I probably would not have been able to learn programming without YouTube.
+                            In my free time, I love to play games like Valorant, Minecraft, etc. I also enjoy  meeting new people and building meaningful connections, so feel free to connect with me on social media.
                             Thanks for taking the time to learn a little bit about me!
                         </p>
                     </div>
@@ -170,63 +173,370 @@
                     <!-- <br> -->
                     <div class="work-container" id="work-container">
                         <div class="graphics-designer box" id="graphics-designer">
-                            <h2 class="skill-heading text" id = "skill-heading">Graphic Designing</h2>
+
+                            <h2 class="skill-heading text" id = "skill-heading">
+                                Graphic Designing
+                            </h2>
+
+                            
                             <div class="sub-work-container" style="display: none;">
-                                <div class="gfx-flickity">
-                                    <div class="gfx-work-cell">
-                                        <img draggable="false" src="./assets/images/2D-Logos.png" alt="">
+                                <div class="gfx-flickity flicking-viewport" id="gfx-flickity">
+
+                                    <div class="flicking-camera">
+                                        <a href="https://www.behance.net/gallery/101565305/2D-Logos-(Vector-and-Text)" target="_blank">
+                                            <div class="gfx-work-cell ">
+                                                <img draggable="false" class="work-img" src="./assets/images/2D-Logos.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            2D Logos
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.behance.net/gallery/110876451/3D-Logos" target="_blank">
+                                            <div class="gfx-work-cell panel">
+                                                <img draggable="false" class="work-img" src="./assets/images/3D-Logos.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            3D Logos
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.behance.net/gallery/101567143/BannersPosters" target="_blank">
+                                            <div class="gfx-work-cell panel">
+                                                <img draggable="false" class="work-img" src="./assets/images/Banners-Posters.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            Posters
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.behance.net/gallery/101563429/Twitter-Headers" target="_blank">
+                                            <div class="gfx-work-cell panel">
+                                                <img draggable="false" class="work-img" src="./assets/images/Twitter-Headers.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            Twitter<br>Headers
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.behance.net/gallery/101561757/Youtube-Banners" target="_blank">
+                                            <div class="gfx-work-cell panel">
+                                                <img draggable="false" class="work-img" src="./assets/images/YouTube-Banners.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            YouTube<br>Banners
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
-                                    <div class="gfx-work-cell">
-                                        <img draggable="false" src="./assets/images/3D-Logos.png" alt="">
-                                    </div>
-                                    <div class="gfx-work-cell">
-                                        <img draggable="false" src="./assets/images/Banners-Posters.png" alt="">
-                                    </div>
-                                    <div class="gfx-work-cell">
-                                        <img draggable="false" src="./assets/images/Twitter-Headers.png" alt="">
-                                    </div>
-                                    <div class="gfx-work-cell">
-                                        <img draggable="false" src="./assets/images/YouTube-Banners.png" alt="">
-                                    </div>
+                                    <div class="flicking-arrow-prev shrink-arrows"></div>
+                                    <div class="flicking-arrow-next shrink-arrows"></div>
+
                                     
                                 </div>
-                                <div class="graphics-designing-skills">
-                                    <h2 class="sub-skills-text text">Software<br>Used</h2>
-                                    <div class="gfx-skills-logos">
-                                        <img class="skill-icon" draggable="false" src="./assets/svgs/photoshop.svg" alt="">
-                                        <img class="skill-icon" draggable="false" src="./assets/svgs/illustrator.svg" alt="">
-                                        <img class="skill-icon" draggable="false" src="./assets/svgs/lightroom.svg" alt="">
-                                        <img class="skill-icon" style="transform: scale(0.8);" draggable="false" src="./assets/svgs/blender.svg" alt="">
+                                <div class="graphics-designing-skills-container">
+                                    <div class="graphics-designing-skills">
+                                        <h2 class="sub-skills-text text">Software Used</h2>
+                                        <div class="gfx-skills-logos">
+                                            <a href="https://www.adobe.com/products/photoshop.html" target="_blank"><img class="skill-icon" draggable="false" src="./assets/svgs/photoshop.svg" alt=""></a>
+                                            <a href="https://www.adobe.com/products/illustrator.html" target="_blank"><img class="skill-icon" draggable="false" src="./assets/svgs/illustrator.svg" alt=""></a>
+                                            <a href="https://www.adobe.com/products/photoshop-lightroom.html" target="_blank"><img class="skill-icon" draggable="false" src="./assets/svgs/lightroom.svg" alt=""></a>
+                                            <a href="https://www.blender.org/" target="_blank"><img class="skill-icon blender-icon" style="transform: scale(0.75);" draggable="false" src="./assets/svgs/blender.svg" alt=""></a>
+                                        </div>
                                     </div>
-                                </div>
+                                    <p class="info-text text">
+                                        Click on the image to see all of the respective designs.
+                                    </p>
+                                </div>  
                             </div>
                             
                         </div>
                         <div class="visual-editor box" id="visual-editor">
-                            <h2 class="skill-heading text" id = "skill-heading">Visual Editing</h2>
-                            <div class="visual-editing-work-container" style="display: none;">
-                                
-                            </div>
-                            <div class="visual-editing-skills">
 
+                            <h2 class="skill-heading text" id = "skill-heading">
+                                Visual Editing
+                            </h2>
+                            <div class="sub-work-container" style="display: none;">
+                                <div class="gfx-flickity flicking-viewport" id="vfx-flickity">
+
+                                    <div class="flicking-camera">
+                                        <a href="https://www.behance.net/gallery/101565305/2D-Logos-(Vector-and-Text)" target="_blank">
+                                            <div class="gfx-work-cell ">
+                                                <img draggable="false" class="work-img" src="./assets/images/2D-Logos.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            2D Logos
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.behance.net/gallery/110876451/3D-Logos" target="_blank">
+                                            <div class="gfx-work-cell panel">
+                                                <img draggable="false" class="work-img" src="./assets/images/3D-Logos.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            3D Logos
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.behance.net/gallery/101567143/BannersPosters" target="_blank">
+                                            <div class="gfx-work-cell panel">
+                                                <img draggable="false" class="work-img" src="./assets/images/Banners-Posters.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            Posters
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.behance.net/gallery/101563429/Twitter-Headers" target="_blank">
+                                            <div class="gfx-work-cell panel">
+                                                <img draggable="false" class="work-img" src="./assets/images/Twitter-Headers.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            Twitter<br>Headers
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.behance.net/gallery/101561757/Youtube-Banners" target="_blank">
+                                            <div class="gfx-work-cell panel">
+                                                <img draggable="false" class="work-img" src="./assets/images/YouTube-Banners.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            YouTube<br>Banners
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="flicking-arrow-prev shrink-arrows"></div>
+                                    <div class="flicking-arrow-next shrink-arrows"></div>
+
+                                    
+                                </div>
+                                <div class="graphics-designing-skills-container">
+                                    <div class="graphics-designing-skills">
+                                        <h2 class="sub-skills-text text">Software Used</h2>
+                                        <div class="gfx-skills-logos">
+                                            <a href="https://www.adobe.com/products/photoshop.html" target="_blank"><img class="skill-icon" draggable="false" src="./assets/svgs/photoshop.svg" alt=""></a>
+                                            <a href="https://www.adobe.com/products/illustrator.html" target="_blank"><img class="skill-icon" draggable="false" src="./assets/svgs/illustrator.svg" alt=""></a>
+                                            <a href="https://www.adobe.com/products/photoshop-lightroom.html" target="_blank"><img class="skill-icon" draggable="false" src="./assets/svgs/lightroom.svg" alt=""></a>
+                                            <a href="https://www.blender.org/" target="_blank"><img class="skill-icon blender-icon" style="transform: scale(0.75);" draggable="false" src="./assets/svgs/blender.svg" alt=""></a>
+                                        </div>
+                                    </div>
+                                    <p class="info-text text">
+                                        Click on the image to see all of the respective designs.
+                                    </p>
+                                </div>  
                             </div>
                         </div>
                         <div class="web-developer box" id="web-developer">
-                            <h2 class="skill-heading text" id = "skill-heading" >Web Development</h2>
-                            <div class="web-development-work-container" style="display: none;">
-                                
-                            </div>
-                            <div class="web-development-skills">
 
+                            <h2 class="skill-heading text" id = "skill-heading" >
+                                Web Development
+                            </h2>
+                            <div class="sub-work-container" style="display: none;">
+                                <div class="gfx-flickity flicking-viewport" id="web-dev-flickity">
+
+                                    <div class="flicking-camera">
+                                        <a href="https://www.behance.net/gallery/101565305/2D-Logos-(Vector-and-Text)" target="_blank">
+                                            <div class="gfx-work-cell ">
+                                                <img draggable="false" class="work-img" src="./assets/images/2D-Logos.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            2D Logos
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.behance.net/gallery/110876451/3D-Logos" target="_blank">
+                                            <div class="gfx-work-cell panel">
+                                                <img draggable="false" class="work-img" src="./assets/images/3D-Logos.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            3D Logos
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.behance.net/gallery/101567143/BannersPosters" target="_blank">
+                                            <div class="gfx-work-cell panel">
+                                                <img draggable="false" class="work-img" src="./assets/images/Banners-Posters.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            Posters
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.behance.net/gallery/101563429/Twitter-Headers" target="_blank">
+                                            <div class="gfx-work-cell panel">
+                                                <img draggable="false" class="work-img" src="./assets/images/Twitter-Headers.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            Twitter<br>Headers
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.behance.net/gallery/101561757/Youtube-Banners" target="_blank">
+                                            <div class="gfx-work-cell panel">
+                                                <img draggable="false" class="work-img" src="./assets/images/YouTube-Banners.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            YouTube<br>Banners
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="flicking-arrow-prev shrink-arrows"></div>
+                                    <div class="flicking-arrow-next shrink-arrows"></div>
+
+                                    
+                                </div>
+                                <div class="graphics-designing-skills-container">
+                                    <div class="graphics-designing-skills">
+                                        <h2 class="sub-skills-text text">Software Used</h2>
+                                        <div class="gfx-skills-logos">
+                                            <a href="https://www.adobe.com/products/photoshop.html" target="_blank"><img class="skill-icon" draggable="false" src="./assets/svgs/photoshop.svg" alt=""></a>
+                                            <a href="https://www.adobe.com/products/illustrator.html" target="_blank"><img class="skill-icon" draggable="false" src="./assets/svgs/illustrator.svg" alt=""></a>
+                                            <a href="https://www.adobe.com/products/photoshop-lightroom.html" target="_blank"><img class="skill-icon" draggable="false" src="./assets/svgs/lightroom.svg" alt=""></a>
+                                            <a href="https://www.blender.org/" target="_blank"><img class="skill-icon blender-icon" style="transform: scale(0.75);" draggable="false" src="./assets/svgs/blender.svg" alt=""></a>
+                                        </div>
+                                    </div>
+                                    <p class="info-text text">
+                                        Click on the image to see all of the respective designs.
+                                    </p>
+                                </div>  
                             </div>
                         </div>
                         <div class="music-producer box" id="music-producer">
-                            <h2 class="skill-heading text" id = "skill-heading">Music Production</h2>
-                            <div class="music-production-work-container" style="display: none;">
-                                
-                            </div>
-                            <div class="music-production-skills">
 
+                            <h2 class="skill-heading text" id = "skill-heading">
+                                Music Production
+                            </h2>
+                            <div class="sub-work-container" style="display: none;">
+                                <div class="gfx-flickity flicking-viewport" id="music-prod-flickity">
+
+                                    <div class="flicking-camera">
+                                        <a href="https://www.behance.net/gallery/101565305/2D-Logos-(Vector-and-Text)" target="_blank">
+                                            <div class="gfx-work-cell ">
+                                                <img draggable="false" class="work-img" src="./assets/images/2D-Logos.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            2D Logos
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.behance.net/gallery/110876451/3D-Logos" target="_blank">
+                                            <div class="gfx-work-cell panel">
+                                                <img draggable="false" class="work-img" src="./assets/images/3D-Logos.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            3D Logos
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.behance.net/gallery/101567143/BannersPosters" target="_blank">
+                                            <div class="gfx-work-cell panel">
+                                                <img draggable="false" class="work-img" src="./assets/images/Banners-Posters.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            Posters
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.behance.net/gallery/101563429/Twitter-Headers" target="_blank">
+                                            <div class="gfx-work-cell panel">
+                                                <img draggable="false" class="work-img" src="./assets/images/Twitter-Headers.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            Twitter<br>Headers
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.behance.net/gallery/101561757/Youtube-Banners" target="_blank">
+                                            <div class="gfx-work-cell panel">
+                                                <img draggable="false" class="work-img" src="./assets/images/YouTube-Banners.png" alt="">
+                                                <div class="gfx-project-text text">
+                                                    <h2>
+                                                        <!-- <span class="color-theme"> -->
+                                                            YouTube<br>Banners
+                                                        <!-- </span> -->
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="flicking-arrow-prev shrink-arrows"></div>
+                                    <div class="flicking-arrow-next shrink-arrows"></div>
+
+                                    
+                                </div>
+                                <div class="graphics-designing-skills-container">
+                                    <div class="graphics-designing-skills">
+                                        <h2 class="sub-skills-text text">Software Used</h2>
+                                        <div class="gfx-skills-logos">
+                                            <a href="https://www.adobe.com/products/photoshop.html" target="_blank"><img class="skill-icon" draggable="false" src="./assets/svgs/photoshop.svg" alt=""></a>
+                                            <a href="https://www.adobe.com/products/illustrator.html" target="_blank"><img class="skill-icon" draggable="false" src="./assets/svgs/illustrator.svg" alt=""></a>
+                                            <a href="https://www.adobe.com/products/photoshop-lightroom.html" target="_blank"><img class="skill-icon" draggable="false" src="./assets/svgs/lightroom.svg" alt=""></a>
+                                            <a href="https://www.blender.org/" target="_blank"><img class="skill-icon blender-icon" style="transform: scale(0.75);" draggable="false" src="./assets/svgs/blender.svg" alt=""></a>
+                                        </div>
+                                    </div>
+                                    <p class="info-text text">
+                                        Click on the image to see all of the respective designs.
+                                    </p>
+                                </div>  
                             </div>
                         </div>
                         
@@ -247,8 +557,11 @@
     <img draggable="false" src="assets/svgs/moon_color_theme.svg" class="dark-mode-icon" id="dark-mode-icon">
     
 
-    <div class = "spot-blur" id="spot-blur">
+    
 
+    <script src="https://unpkg.com/@egjs/flicking/dist/flicking.pkgd.min.js" crossorigin="anonymous"></script>
+    <script src="https://naver.github.io/egjs-flicking-plugins/release/latest/dist/plugins.min.js" async></script>
+    <!-- <script src="https://naver.github.io/egjs-flicking-plugins/release/latest/dist/plugins.min.js"></script> -->
     
 </body>
 </html>

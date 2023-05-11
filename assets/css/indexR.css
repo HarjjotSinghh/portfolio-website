@@ -291,6 +291,8 @@ html, body {
 }
 
 .spot-blur {
+    /* z-index: -99999; */
+    pointer-events: none;
     position: absolute;
     top: 200px;
     left: 300px;
@@ -740,7 +742,7 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    text-align: left;
+    /* text-align: left; */
     width: 100%;
     height: 100%;
     padding: 10px;
@@ -1010,7 +1012,7 @@ to {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-self: center;
+    justify-content: center;
     /* margin-top: 180px; */
 }
 
@@ -1024,15 +1026,14 @@ to {
     font-size: 18px;
     font-family: 'Manrope', sans-serif;
     color: rgb(251, 251, 251);
-    max-width: 1000px;
     overflow-wrap: break-word;
 }
 
 .skills-text {
-    font-size: 70px;
+    font-size: 60px;
     font-family: 'Manrope', sans-serif;
     color: rgb(251, 251, 251);
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 .skills-container {
     position: relative;
@@ -1042,7 +1043,7 @@ to {
     /* align-items: center; */
     flex-direction: column;
     /* margin-top: -8%; */
-    width: 100%;
+    width: 75vw;
     height: 100%;
     padding: 15px;
     margin-top: -3%;
@@ -1067,6 +1068,7 @@ to {
     height: 50%;
     box-sizing: content-box;
     margin-top: 10px;
+    gap: 40px;
 }
 
 .box {
@@ -1076,8 +1078,8 @@ to {
     display: flex;
     flex: 1 0 calc(50% - 20px);
     height: 50%;
-    margin: 10px;
-    background: -webkit-linear-gradient(270deg, rgb(0, 251, 255), rgb(6, 130, 216));;
+    background: rgba(0, 187, 255, 0.05);
+    box-shadow: 0 0 15px 3px rgba(0, 187, 255, 0.06), 0 0 20px 5px rgba(6, 130, 216, 0.05);
     border-radius: 30px;
     transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);    
     opacity: 0.95;
@@ -1090,7 +1092,7 @@ to {
         transform: scale(1);
     }
     to {
-        opacity: 0.88;
+
         transform: scale(1.03);
     }
 }
@@ -1098,7 +1100,7 @@ to {
 @keyframes work-scale-down {
     from {
         transform: scale(1.03);
-        opacity: 0.88;
+
     }
     to {
         transform: scale(1.0);
@@ -1123,6 +1125,9 @@ to {
     width: 100%;
     height: 100%;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .image-container {
@@ -1145,12 +1150,17 @@ to {
     display: flex;
     width: 100%;
     height: 100%;
-    background: -webkit-linear-gradient(270deg, rgb(0, 251, 255), rgb(6, 130, 216));;
+    background: rgba(0, 187, 255, 0.05);
+    box-shadow: 0 0 15px 3px rgba(0, 187, 255, 0.06), 0 0 40px 20px rgba(6, 130, 216, 0.05);
     border-radius: 60px;
     transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);    
     opacity: 1;
     overflow: hidden;
-    padding: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+
 }
 
 .back-arrow-img {
@@ -1170,9 +1180,16 @@ to {
 }
 
 .gfx-flickity {
-    width: 100%;
+    width: 80% !important;
     height: 100% !important;
-    border-radius: 25px;
+    border-radius: 60px;
+    box-sizing: border-box;
+    /* overflow: hidden; */
+    cursor: grab;
+}
+
+.gfx-flickity:active {
+    cursor: grabbing;
 }
 
 .graphics-designing-skills {
@@ -1181,12 +1198,12 @@ to {
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 25%;
-    height: 100%;
+    width: 100%;
+    height: 90%;
 }
 
 .sub-skills-text {
-    font-size: 40px;
+    font-size: 34px;
     font-family: 'Manrope', sans-serif;
     color: rgb(251, 251, 251);
     font-weight: 900;
@@ -1199,49 +1216,163 @@ to {
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .skill-icon {
     width: 60px;
     height: 60px;
     opacity: 1;
-    border-radius: 10px;
+    border-radius: 5px;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
 }
 
 .gfx-work-cell {
-    margin-right: 5px;
-    padding: 5px;
+    position: relative;
+    margin-right: 1%;
+    padding: 8px;
     height: 100% !important;
     width: auto;
     /* background: white; */
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* transition-delay: 0.5s; */
+    backface-visibility: hidden;
 
 }
 
-.gfx-work-cell img {
+.work-img {
     height: 100%;
     width: auto;
-    border-radius: 50px;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* transition-delay: 0.5s; */
 }
 
-.flickity-page-dots {
-    bottom: 2% !important;
+.gfx-work-cell:hover {
+    /* transition-delay: 0ms; */
+    transform: scale(1.02);
+    
 }
 
-.flickity-viewport {
-    height: 100% !important;
-    border-radius: 50px !important;
-    overflow: hidden !important;
-    border: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
+.gfx-work-cell:hover .work-img {
+    opacity: 0.8;
+    filter: blur(4px);
 }
-.flickity-slider {
-    width: 100% !important;
-    height: 100% !important;
+.gfx-work-cell:hover .big-box {
+    filter: blur(4px);
 }
 
-@media only screen and (max-width: 720px) {
+.gfx-work-cell:hover .gfx-project-text{
+    opacity: 1;
+    visibility: visible;
+}
+
+/* .gfx-work-cell:hover .work-img::after {
+    
+} */
+
+.gfx-project-text {
+    cursor: pointer;
+    border-radius: 60px;
+    position: absolute;
+    opacity: 0;
+    display: flex;
+    visibility: hidden;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 16px);
+    height: calc(100% - 15px);
+    transform: translateY(-100%);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* transition-delay: 0.5s; */
+    /* background: rgba(0, 187, 255, 0.05);
+    box-shadow: 0 0 15px 3px rgba(0, 187, 255, 0.06), 0 0 40px 20px rgba(6, 130, 216, 0.05); */
+}
+
+.gfx-project-text h2 {
+    font-size: 50px;
+    font-family: 'Manrope', sans-serif;
+    color: rgb(251, 251, 251);
+    font-weight: 900;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(27, 27, 27, 0.3);
+    /* text-transform: uppercase; */
+}
+
+.flicking-arrow-prev, .flicking-arrow-next {
+    opacity: 0.6 !important;
+    background-color: white !important;
+    background-blend-mode: overlay !important;
+    border-radius: 500px !important;
+}
+
+.flicking-arrow-prev:hover, .flicking-arrow-nex:hover {
+    opacity: 0.8 !important;
+    transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.flicking-arrow-prev::before, .flicking-arrow-prev::after, .flicking-arrow-next::before, .flicking-arrow-next::after {
+    background-color: black !important;
+    opacity: 0.8 !important;
+}
+
+.flicking-viewport {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+.flicking-viewport::-webkit-scrollbar {
+    display: none;
+}
+
+.shrink-arrows {
+    transform: scale(0.6) translateY(-50%) !important;
+    transform-origin: center !important;
+}
+.skill-icon:hover {
+    transform: scale(1.1);
+}
+.blender-icon:hover {
+    transform: scale(0.8) !important;
+}
+
+.about-me-container {
+    border-radius: 40px;
+    background: rgba(0, 187, 255, 0.05);
+    box-shadow: 0 0 15px 3px rgba(0, 187, 255, 0.06), 0 0 40px 20px rgba(6, 130, 216, 0.05);
+    padding: 20px;
+    margin: 10px;
+    max-width: 80vw;
+
+}
+.info-text {
+    height: 10%;
+    font-size: 0.7rem;
+    font-family: 'Manrope', sans-serif;
+    color: rgb(251, 251, 251);
+    font-weight: lighter;
+    text-align: center;
+}
+
+.graphics-designing-skills-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 20%;
+    height: 100%;
+    padding: 10px;
+}
+
+/* .box-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+@media only screen and (max-width: 1050px) {
 
     .main-container {
         overflow: visible;
@@ -1319,22 +1450,28 @@ to {
     }
     .skills-text {
         font-size: 44px;
+        margin-bottom: 2px;
+
     }
     .work-container {
-        height: 50%;
+        height: 60%;
+        gap: 15px;
     }
-    /* .skills-container {
-        margin-top: -75%;
-    } */
+    
     .box { 
         flex-direction: column;
         flex: auto;
         width: 100%;
         height: 25%;
         margin: 5px;
+        box-shadow: 0 0 8px 2px rgba(0, 187, 255, 0.06), 0 0 15px 3px rgba(6, 130, 216, 0.05);
     }
     .big-box {
         border-radius: 30px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
     }
     .skill-heading {
         font-size:30px;
@@ -1351,24 +1488,77 @@ to {
 
     }
     .gfx-flickity {
-        width: 100%;
-        height: 75%;
+        width: 100% !important;
+        height: 75% !important;
+        border-radius: 40px;
     }
     .graphics-designing-skills {
+        /* flex-direction: row; */
+    }
+    .graphics-designing-skills-container {
         width: 100%;
         height: 25%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .info-text {
+        font-size: 8px;
     }
     .gfx-work-cell img {
         border-radius: 20px;
+    }
+    .gfx-work-cell {
+        margin-right: 0.5%;
     }
     .flickity-viewport {
         border-radius: 20px !important;
     }
     .sub-skills-text {
-        font-size: 26px;
+        font-size: 22px;
     }
     .skill-icon {
         width: 40px;
         height: 40px;
+    }
+    .about-me-container {
+        padding: 10px;
+    }
+    .gfx-project-text h2 {
+        font-size: 30px;
+    }
+    .gfx-work-cell:hover .work-img {
+        opacity: 0.9;
+        filter: blur(2px);
+    }
+    #page3 {
+        align-items: center;
+    }
+    .skills-container {
+        margin-top: -20%;
+    }
+    .gfx-skills-logos {
+        margin-top: -10px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .about-me-text {
+        font-size: 10px;
+    }
+    .about-me {
+        font-size: 26px;
+    }
+    .skills-container {
+        margin-top: -40%;
+    }
+    .skill-heading {
+        font-size: 22px !important;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .skill-heading {
+        font-size: 26px;
     }
 }
