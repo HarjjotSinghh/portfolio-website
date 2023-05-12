@@ -177,7 +177,7 @@ html, body {
         opacity: 0%;
     }
     100% {
-        opacity: 60%;
+        opacity: 20%;
     }
 }
 
@@ -294,16 +294,18 @@ html, body {
     /* z-index: -99999; */
     pointer-events: none;
     position: absolute;
-    top: 200px;
-    left: 300px;
-    opacity: 65%;
-    -webkit-filter: blur(220px);
-    -moz-filter: blur(220px);
-    -o-filter: blur(220px);
-    -ms-filter: blur(220px);
-    filter: blur(220px);
-    width: 350px;
-    height: 350px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 20%;
+    -webkit-filter: blur(420px);
+    -moz-filter: blur(420px);
+    -o-filter: blur(420px);
+    -ms-filter: blur(420px);
+    filter: blur(420px);
+    width: 50%;
+    height: auto;
+    aspect-ratio: 1/1;
     border-radius: 100%;
     animation-name: fade-in-spot-blur;
     animation-timing-function: ease;
@@ -313,7 +315,7 @@ html, body {
     animation-duration: 10s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out; */
-    background-color: rgb(45, 115, 255);
+    background-color: rgb(45, 122, 255);
 }
 
 /* socials */
