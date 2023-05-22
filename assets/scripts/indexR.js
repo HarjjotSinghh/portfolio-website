@@ -334,14 +334,14 @@
         }, 2000);
         
         // go here
-        // animateElement(heading, 0, 1.7)
-        // animateElement(subHeading, 1.7, 1.7)
-        // animateElement(divider, 3.6, 1.7)
-        // animateElement(bio, 5, 2)
-        // animateElement(divider2, 6.8, 1.7)
-        // animateElement(socialLogoContainer, 7.8, 1.5)
+        animateElement(heading, 0, 1.7)
+        animateElement(subHeading, 1.7, 1.7)
+        animateElement(divider, 3.6, 1.7)
+        animateElement(bio, 5, 2)
+        animateElement(divider2, 6.8, 1.7)
+        animateElement(socialLogoContainer, 7.8, 1.5)
         // animateImage(image, 2, 2)
-        // animateNavArrow(navArrow, 8, 1)
+        animateNavArrow(navArrow, 8, 1)
 
         // mainContainer.style.maxWidth = window.screen.width;
         // mainContainer.style.maxHeight = window.screen.height;
