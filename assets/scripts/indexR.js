@@ -172,37 +172,37 @@
           });
         vfxFlicking.addPlugins(new Flicking.Plugins.Arrow());
 
-        const webdevFlicking = new Flicking("#web-dev-flickity", {
-            align: "center",
-            circular: true,
-            bound: true,
-            renderOnlyVisible: true,
-            bounce: "50%",
-            inputType: ["touch", "mouse", "pointer"],
-          });
-        webdevFlicking.addPlugins(new Flicking.Plugins.AutoPlay({
-            autoplay: true,
-            duration: 1500,
-            animationDuration: 800,
-            stopOnHover: true
-        }));
-        webdevFlicking.addPlugins(new Flicking.Plugins.Arrow());
+        // const webdevFlicking = new Flicking("#web-dev-flickity", {
+        //     align: "center",
+        //     circular: true,
+        //     bound: true,
+        //     renderOnlyVisible: true,
+        //     bounce: "50%",
+        //     inputType: ["touch", "mouse", "pointer"],
+        //   });
+        // webdevFlicking.addPlugins(new Flicking.Plugins.AutoPlay({
+        //     autoplay: true,
+        //     duration: 1500,
+        //     animationDuration: 800,
+        //     stopOnHover: true
+        // }));
+        // webdevFlicking.addPlugins(new Flicking.Plugins.Arrow());
 
-        const musicprodFlicking = new Flicking("#music-prod-flickity", {
-            align: "center",
-            circular: true,
-            bound: true,
-            renderOnlyVisible: true,
-            bounce: "50%",
-            inputType: ["touch", "mouse", "pointer"],
-          });
-          musicprodFlicking.addPlugins(new Flicking.Plugins.AutoPlay({
-            autoplay: true,
-            duration: 1500,
-            animationDuration: 800,
-            stopOnHover: true
-        }));
-        musicprodFlicking.addPlugins(new Flicking.Plugins.Arrow());
+        // const musicprodFlicking = new Flicking("#music-prod-flickity", {
+        //     align: "center",
+        //     circular: true,
+        //     bound: true,
+        //     renderOnlyVisible: true,
+        //     bounce: "50%",
+        //     inputType: ["touch", "mouse", "pointer"],
+        //   });
+        //   musicprodFlicking.addPlugins(new Flicking.Plugins.AutoPlay({
+        //     autoplay: true,
+        //     duration: 1500,
+        //     animationDuration: 800,
+        //     stopOnHover: true
+        // }));
+        // musicprodFlicking.addPlugins(new Flicking.Plugins.Arrow());
 
         
 
